@@ -57,12 +57,16 @@
 
             5. 그룹선택자 : ,(콤마)  (and 기능)
             예) h1,div,a {}
-
+             
+            6. 자손 선택자 : 띄어쓰기 
+                예) div a {} -> div 하위의 모든 a 요소들
+                
 
             */
 
             /* 기본마진 패딩 없애기 */
-            html,body {
+            html,
+            body {
                 margin: 0;
                 padding: 0;
                 /* 실제는 body에만 마진 8px 이 있지만 
@@ -70,11 +74,85 @@
                 한꺼번에 최상위 요소인 html, body를
                 마진, 패딩 초기화값 0으로 세팅한다.  */
             }
+
+            /* 1. 박스공통 클래스 */
+            .bx {
+                /* 1. 가로크기 w
+                아무값도 안쓰면 auto인데,
+                블록은 부모요소 끝까지 차지*/
+                width: 750px;
+                /* 2. 세로크기  h
+                아무값도 안쓰면 auto 인데 
+                블록은 내용만큼만 늘어남*/
+                /* height: 150px; */
+                /* 3. 경계선 (보더) bd 
+                border: 두께 종류 색상
+                - border-width: 두께
+                - border-style : 종류
+                - border-color : 색상
+                https://www.w3schools.com/css/css_border.asp
+                */
+                border: 5px dashed #5119d3;
+
+                /* 둥근 모서리 보더 : border-radius brad
+                border-radius : 값 
+                값을 50%을 주면 원이 생김
+                */
+                border-radius: 10px;
+                /* border-radius: 50%; */
+
+                /* 4. 안쪽 여백 (패딩) p
+                padding: 1개 (4방향)
+                padding : 1개 2개 (위아래 양쪽)
+                padding : 1개 2개 3개 (위 양쪽 아래)
+                padding : 1개 2개 3개 4개(위 오른 아래 왼쪽)
+
+                ->>>마진도 동일함! 
+                */
+
+                padding: 20px;
+
+                /* 5. 바깥여백 (마진) m */
+                /* margin: 30px; */
+                margin: 0 auto;
+                /* 마진탑 덮어쓰기 mt */
+                margin-top: 30px;
+                /* 마영오씨가 누구지?
+                - 일반적인 블록요소가 가로크기를 가질 때 
+                이를 중앙정렬하려면 양쪽 마진을 auto로 설정한다. 
+                이때 위아래 0 양쪽 auto 를 줄여서 마영오! 라고 함 */
+            }
+           
+
+            /* 1. 상단영역 */
+            .top {
+                /* 배경색 :bgc
+                background-color */
+                background-color: lightskyblue;
+                /* 글자 중앙 정렬 tac*/
+                text-align: center;
+            }
+            /* 2. 메인영역 */
+            /*메인 영역 이미지  */
+            .cont img {
+                width: 100%;
+                /* 한쪽만 크기를 주면 이미지는 자동으로 비율 유지를 하면서
+                변경된다. 100%는 부모박스를 채움! */
+            }
+            /* 3. 하단영역 */
+            .info {
+                /* 배경색 */
+                background-color: #e7e7e7;
+                /* 글자 중앙 정렬 */
+                text-align: center;
+            }
+
+
         </style>
     </head>
     <body>
         <!--1. 상단영역  -->
-        <header class="top">
+        <header class="top bx">
             <!-- 1-1. 제목 -->
             <h1>네이버 요약 뉴스</h1>
             <!-- 1-2 GNB 메뉴 -->
@@ -94,16 +172,16 @@
             </nav>
         </header>
         <!--2. 메인영역  -->
-        <main class="cont">
+        <main class="cont bx">
             <img src="./images/main.png" alt="메인 뉴스 이미지" />
         </main>
         <!--3. 하단영역  -->
-        <footer class="info">
+        <footer class="info bx">
             <!-- 주소 블록 요소 -->
             <address>
-                서울시 강남구 역삼동 119 대호B 8F <br>
-                대표: shw <br> 
-                전화: 010-2222-3333 <br>
+                서울시 강남구 역삼동 119 대호B 8F <br />
+                대표: shw <br />
+                전화: 010-2222-3333 <br />
             </address>
         </footer>
 
