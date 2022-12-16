@@ -190,6 +190,7 @@
                 color: black;
                 /* 밑줄없앰 - text-decoration : none*/
                 text-decoration: none; /* tdn */
+                font-size: 20px;
 
             }
 
@@ -197,7 +198,7 @@
             /* :hover 가상클래스 
             -> 마우스 오버된 상태에 대한 디자인 셋팅  */
             /* a+a:hover 앞에 a 형제가 있는 a에 오버시    */
-            #gnb a+a :hover {
+            #gnb a+a:hover {
                 /* 글자색 */
                 color: lightseagreen;
                 /* 글자 데코레이션
@@ -206,6 +207,12 @@
                 */
                 text-decoration: overline;
 
+            }
+            /* 로고 이미지  */
+            #gnb img {
+                /* 인라인 요소간 세로정렬 (진행방향) : vertical-align
+                -값 :top, bottom, middle, 수치  */
+                vertical-align: -7px;
             }
 
             /* 2. 메인영역 */
@@ -247,16 +254,18 @@
             <!-- GNB(global navigation bar)  -->
 
             <nav id="gnb">
-                <a href="#">
+                <a href="index.html">
                     <img
                         src="images/logo.png"
                         alt="네이버로고"
                         style="width: 20px"
                     />
                 </a>
-                <a href="">정치 </a>| <a href="">경제 </a>|
-                <a href="">사회 </a>| <a href="">IT/과학 </a>|
-                <a href="">TV/연예</a>
+                <a href="sub1.html">정치 </a>| 
+                <a href="sub2.html">경제 </a>|
+                <a href="sub3.html">사회 </a>| 
+                <a href="sub4.html">IT/과학 </a>|
+                <a href="sub5.html">TV/연예</a>
             </nav>
         </header>
         <!--2. 메인영역  -->
