@@ -177,11 +177,7 @@
 
             /* GNB 메뉴 a */
 
-            /* .top > nav > a {
-                font-family: "Cute Font", cursive;
-            } */
-
-            #gnb a {
+                #gnb a {
                 /* 글자체 */
                 font-family: "Cute Font", cursive;
                 /* a 요소는 기본적으로 밑줄과 글자색이 셋팅됨! 
@@ -198,8 +194,8 @@
             /* 2. 메인영역 */
             /*메인 영역 이미지  */
             .cont img {
-                width: 100%;
-                /* 한쪽만 크기를 주면 이미지는 자동으로 비율 유지를 하면서
+            width: 100%;
+            /* 한쪽만 크기를 주면 이미지는 자동으로 비율 유지를 하면서
                 변경된다. 100%는 부모박스를 채움! */
             }
 
@@ -212,9 +208,16 @@
                 /* 글자 중앙 정렬 */
                 text-align: center;
             }
-
-            footer > address {
+            /* 하단주소 */
+            .info address {
+                /* 글자체 */
                 font-family: "Cute Font", cursive;
+                /* address 는 기본적으로 이탤릭이므로 해제하기  */
+                font-style: normal;
+                /* 글자색  */
+                color:#999;
+                /* 글자크기 */
+                font-size: 18px;
             }
         </style>
     </head>
