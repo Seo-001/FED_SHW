@@ -13,6 +13,7 @@
 
             [ 웹폰트의 형식 ]
             1. woff(Web Open Font Format)
+            - woff 로 통일되는 방향임
             - w3c에서 표준으로 지정한 웹폰트 형식
             - 2017년에 woff2까지 발표됨(압축률,전송속도향상)
 
@@ -109,23 +110,39 @@
             /* Press Start 2P */
            
            
-           
 
+            /* 웹폰트 설정 */
+            @font-face {
+                font-family: single;
+                src: url(./fonts/SingleDay-Regular.woff)
+                format("woff")
+            }
+            @font-face {
+                font-family: rubik;
+                src: url(./fonts/Rubik80sFade-Regular.woff)
+                format("woff")
+            }
             
+           
             
             
             /* 적용하기 */
-            .wf1{/* Black Han Sans체 */
+            .wf1{/* Single Day체 */
+                font-family: single;
+                font-weight: normal;
+                color: blue;
                 
             }
-            .wf2{/* Cute Font */
+            .wf2{/* rubik 체 */
                 
             }
             .wf3{/* Gugi */
                 
             }
-            .wf4{/* BhuTuka */
-               
+            .wf4{/* rubik */
+                font-family: rubik;
+                font-weight: normal;
+                color: green;
             }
             .wf5{/* Rubik Moonrocks */
                 
