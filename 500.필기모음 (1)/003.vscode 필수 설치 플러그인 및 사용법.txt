@@ -179,6 +179,8 @@ shift -> 바꾼다는 의미를 가진다.
 
 alt shift RR -> 탐색기 나옴 
 
+SHIFT tab : tab 줄이기 
+
 
 
 
