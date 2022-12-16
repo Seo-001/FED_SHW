@@ -6,3 +6,9 @@
 
 2.
 : webkit (크롬+ 사파리 모두 해당하는 것) 
+
+3. 2개 같음
+<img src="images/NAVER_LOGO.png" alt="네이버 로고" style="width: 20px;">
+<!-- 컨트롤 스페이브바 눌러서 경로를 찾아갔습니다. -->
+<img src="./images/NAVER_LOGO.png" alt="네이버 로고" style="width: 20px;">
+<!-- ./을 입력후 경로를 찾아갔습니다. -->
