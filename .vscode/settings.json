@@ -1,0 +1,7 @@
+{
+    "json.schemas": [],
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 4,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+}
