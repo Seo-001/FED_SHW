@@ -103,8 +103,11 @@
                 </p>
 
                 <p>
-                    다누리가 달까지 4개월이 넘는 긴 시간을 소요한 것은 'WSB(BLT) 궤적'을 사용했기 때문이다. BLT궤적은 달
-                    방향이 아닌 태양 쪽으로 우주선을 발사하는 방식이다.
+                    항우연 수석연구원 공유씨가 이렇게 말했다.
+                    <q>
+                        다누리가 달까지 4개월이 넘는 긴 시간을 소요한 것은 'WSB(BLT) 궤적'을 사용했기 때문이다.
+                        BLT궤적은 달 방향이 아닌 태양 쪽으로 우주선을 발사하는 방식이다.
+                    </q>
                 </p>
 
                 <p>
@@ -138,6 +141,21 @@
                 지구 내부에 있다. 달 궤도의 반지름은 38만 4,400km이며, 이것이 달과의 평균 거리가 된다.
             </article>
             <hr />
+            <!-- 인용블록영역 -->
+            <articla class="qb">
+                <h5>한국우주연구원 소개 인용</h5>
+                <blockquote
+                    cite="https://ko.wikipedia.org/wiki/%ED%95%9C%EA%B5%AD%ED%95%AD%EA%B3%B5%EC%9A%B0%EC%A3%BC%EC%97%B0%EA%B5%AC%EC%9B%90"
+                >
+                    한국항공우주연구원(韓國航空宇宙硏究院, 영어: Korea Aerospace Research Institute, KARI), 약자로
+                    항우연은 대전광역시 유성구 어은동에 위치하는 과학기술정보통신부 산하 항공우주 과학기술 관련
+                    기타공공기관 재단법인이다.<br /><br />
+                    '과학기술분야 정부출연 연구기관 등의 설립ㆍ운영 및 육성에 관한 법률'에 근거하여 1989년 10월 10일
+                    설립되었다. 설립 목적은 우주항공기술 개발, 항공공학의 발전과 기술 개발 및 보급 등을 통한 경제 발전과
+                    국민생활 향상이다.
+                </blockquote>
+            </articla>
+
             <!-- 2-5. 기자정보  -->
             <div class="rpt">윤현성 기자(hsyhs@newsis.com)</div>
             <!-- 2-6. 기사원문  -->
@@ -190,6 +208,28 @@
             - 약간 윗쪽 작은글자 (Superscript text)
             - 주석표시숫자(숫자와 설명을 설명함) 
 
+          [시맨틱 태그란?]
+            -sementic : 의미론적인 의미있는
+            즉, 태그가 어떤 구분하는 의미가 있을 경우 
+            시맨틱 태그라고 부른다.! 
+            예) strong, em, address, header, footer, nav, main, section, article 등 html5에서 더욱 강조됨
+            -> 시맨틱태그를 쓰면 검색을 더욱 정교하게 분석적으로 수행할 수 있는 바탕이 마련된다. (검색최적화)
+            
+             [2.인용관련요소]
+            1. <blockquote>	
+                -블록요소로 별도의 인용구를 구분하는 박스 
+                -주의: 내부에 p요소와 같은 다른 블록 쓰면 안됨 
+                -> 다른 블록요소를 담으면 안됨 , 담는 박스가 아니고 단순 인용문 용도임
+                - cite 속성 : 출처표시 
+                (필수속성은 아니며 url 주소가 들어가기 때문에 링크로 오해도리 수 있으나 아님! 단순 출처정보)
+
+            2. <q> 
+                - 작은 인용구 (쌍따옴표기 자동생성)	
+                - 주의: 인라인요소임 (blockquote 와 구분할 것)
+            <abbr>	Defines an abbreviation or acronym
+            <address>	Defines contact information for the author/owner of a document
+            <bdo>	Defines the text direction
+            <cite>	Defines the title of a work
           [시맨틱 태그란?]
             -sementic : 의미론적인 의미있는
             즉, 태그가 어떤 구분하는 의미가 있을 경우 
