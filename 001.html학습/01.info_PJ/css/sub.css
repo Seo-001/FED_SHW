@@ -75,12 +75,65 @@
     /* 글자체 :ff */
     font-family: "Gugi", "serif";
     /* 글자크기 : fz 
-    글자크기 최저 한께는 10px이다. */
+    일반적으로 가독성에 좋은 글자크기 최저 한계는 10px이다. */
     font-size: 12px;
     /* 글자색 : c */
     color: #d46262;
 }
 
 /* 2-4. 기사내용   */
+.arti p {
+    /* 글자크기 fz */
+    font-size: 17px;
+    /* 위아래 줄간격 : lh */
+    /* 주의 : 단위가 없으면 배수임, 기준은 글자크기임!*/
+    line-height: 1.7;
+    /* 위아래 양쪽 패딩 */
+    padding: 0 10px;
+    /* 자간 : ls */
+    letter-spacing: 1px;
+    /* 글자 들여쓰기 양수, 내어쓰기 음수  */
+    /* 값: 양수는 들여쓰기, 음수는 내어쓰기 */
+    /* text-indent: -20px; */
+}
+
+/* mark 요소 변경하기 */
+.arti p mark {
+    /* 인라인을 블록으로 변경! db*/
+    display: block;
+    /* 글자크리변경 */
+    font-size: 20px;
+    /* 줄간격  */
+    line-height: 2;
+    /* 양쪽 패딩 위아래 양쪽 pd0 50추가 */
+    padding: 20px 50px;
+    /* 배경색 */
+    background-color: #ebebeb;
+    /* 보더 위아래  
+    위(top) , 아래(bottom), 왼쪽(left), 오른쪽(right) */
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+
+    /*중앙정렬  */
+    text-align: center;
+
+    /* 위아래 마진 */
+    margin: 15px 0;
+}
+
+/* p 요소 아래 em 요소 디자인 변경  */
+.arti p em {
+    /* 글자그림자 = text-shadow 투명도가 알파값이다.*/
+    /*값 : x축, y축, 블러 색   */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.521);
+    /* 이탤릭 해제 :fsn*/
+    font-style: normal;
+    /* 글자색  */
+    color: darkorchid;
+    /* fwb */
+    font-weight: bold;
+}
+
 /* 2-5. 기자정보   */
+
 /* 2-6. 기사원문   */
