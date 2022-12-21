@@ -78,6 +78,15 @@ body {
     /* 하단 여백 줌  */
     padding-bottom: 50px;
 }
+
+/* 전체 a 요소 공통세팅 */
+
+a {
+    /* 글자색  */
+    color: #222;
+    /* 밑줄없애기 */
+    text-decoration: none;
+}
 /* 1. 박스공통 클래스 */
 .bx {
     /* 1. 가로크기 w
