@@ -1,5 +1,4 @@
 [ HTML 기초 ]
-111111
 
 1. HTML은 Hyper Text Markup Language를 나타냅니다.
 
