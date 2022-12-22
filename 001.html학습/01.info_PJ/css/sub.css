@@ -95,6 +95,8 @@
     /* 글자 들여쓰기 양수, 내어쓰기 음수  */
     /* 값: 양수는 들여쓰기, 음수는 내어쓰기 */
     /* text-indent: -20px; */
+    /* 양쪽 정렬 taj */
+    text-align: justify;
 }
 
 /* mark 요소 변경하기 */
@@ -166,6 +168,7 @@
 .cont > h5 > a {
     /* 디자인 적용 위해 display 변경 */
     /* 인라인 블록에서 블락요소가 있기에 마진 적용과, width, height 적용이 된다. */
+    /* width, height 넣어야 원이 된다 */
     display: inline-block;
     /* 기본없애기 */
     margin: 20px 0;
@@ -193,4 +196,145 @@
     (내부그림자는 inset씀)
     - spread 박스그림자 크기 (필요시 씀 )*/
     box-shadow: 0 0 5px 10px rgb(243, 5, 5);
+}
+
+/* 메인 공통 article 박스 디자인 */
+.cont article {
+    /*  구분선 : 보더 위 bdt */
+    border-top: 2px dashed #ccc;
+    /* 마진위 mt */
+    margin-top: 40px;
+    /* 패딩 p */
+    padding: 15px;
+}
+
+/* 각 파트별 공통 타이틀 */
+
+/* 기사 관련 타이틀 h5 */
+/* .cont>h5 와 구분하기 위해 중간 경로 article 씀  */
+.cont h5 {
+    /* 글자 두께 :얇게 (기본값) fwn */
+    /* 글자체 마다 light , bolder 적용안하는 것도 있음 */
+    font-weight: normal;
+    /* 글자 크기 : fz */
+    font-size: 20px;
+    /* 글자 들여쓰기 : ti */
+    /* text-indent: 20px; */
+    /* 글자색 c */
+    color: #333;
+}
+
+/* 개인 파트  타이틀 h3 */
+.cont h3 {
+    /* 글자체 : 웹폰트 ff */
+    font-family: "Gugi", cursive;
+    /* 글자 두께 :얇게 (기본값) fwn */
+    /* 글자체 마다 light , bolder 적용안하는 것도 있음 */
+    font-weight: normal;
+    /* 글자 크기 : fz */
+    font-size: 26px;
+    /* 글자 들여쓰기 : ti */
+    text-indent: 20px;
+    /* 글자색 c */
+    color: #333;
+}
+
+/* 기사 관련 타이틀 h5 */
+/* .cont>h5 와 구분하기 위해 중간 경로 article 씀  */
+/* 헤딩 태그에는 기본적으로 마진이 있어 0 으로 바꿈   */
+.cont .desc h5 {
+    /* 내용만큼 자동크기 위해 inline -block  */
+    display: inline-block;
+
+    /* 글자체가  다르기에 크기를 잡기 보다  자연스럽게 패딩을 줌 */
+    /* 패딩 위아래 */
+    padding: 10px 20px;
+
+    /* 배경색 bgc */
+    background-color: rgb(141, 129, 124);
+
+    /*테두리  */
+    border: 2px solid #dbdbdb;
+
+    /* 둥근모서리 brad  */
+    border-radius: 20px;
+
+    /* 헤딩 요소 기본마진 없음  */
+    margin: 0;
+
+    /* 내부 그림자 bsh 
+    inset 은 내부그림자*/
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.404);
+}
+
+.cont .qb h5 {
+    display: inline-block;
+    border: 2px solid #dbdbdb;
+    background-color: rgb(141, 129, 124);
+    border-radius: 20px;
+
+    padding: 10px 20px;
+
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.404);
+}
+
+/* 주해박스*/
+.desc div {
+    /* 패딩 p  위 양쪽 아래,  위에 하고 있는 것이 있어서 아래에 0을 줌  */
+    padding: 20px 5px 0;
+    /* 줄간격 : lh */
+    line-height: 1.8;
+    /* 자간 :letter-style: ; */
+    letter-spacing: 1px;
+    /* 양쪽 정렬 justify*/
+    text-align: justify;
+}
+
+/* 인용박스*/
+.qb blockquote {
+    /* 기본 마진 없애기 */
+    margin: 0;
+    /* 패딩 p  위 양쪽 아래,  위에 하고 있는 것이 있어서 아래에 0을 줌  */
+    padding: 20px 5px 0;
+    /* 줄간격 : lh */
+    line-height: 1.5;
+    /* 자간 :letter-style: ; */
+    /* letter-spacing: 0px; */
+
+    /* 글자크기 fz  */
+    font-size: 14px;
+
+    /* 양쪽 정렬 justify*/
+    text-align: justify;
+}
+
+/* 오늘의 작품 & 느낌  */
+.work {
+    /* 글자웅앙 : tac */
+    text-align: center;
+    /* 배경색  */
+    background-color: lightpink;
+
+    /* 그라데이션 -> 이미지로 bgi */
+    background-image: linear-gradient(
+        45deg,
+        rgb(190, 117, 117) 10%,
+        rgb(189, 189, 113) 20%,
+        rgb(189, 189, 113) 80%,
+        blue
+    );
+
+    /*linear-gradient (방향, 색1 %, 색2 %,.....);
+    * 방향: to top, to bottom, to left, to right  
+    (방향 에 각도를 쓰면 그라데이션 각도가 표현됨)
+    -> 방향대신 각도 : 수치 deg (예 :45deg)
+    * 색상을 콤마로 나열하면 등분할 하여 그라데이션 포현되고 색상 뒤에 % 수치를 쓰면 
+    특정 비율을 나타낼 수 있다.!*/
+
+    /* 배경옵션 추가 */
+    /* background-clip: 배경이 칠해지는 범위 설정 ; */
+    /* 1. border-box -> 보더까지 적용 (기본값) 
+        2. padding-box -> 패딩가지 적용 
+        3. content-box -> 내용영역만 적용 (패딩, 보더 빠짐) */
+    background-clip: content-box;
 }
