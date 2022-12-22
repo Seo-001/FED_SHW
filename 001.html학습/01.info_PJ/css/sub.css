@@ -499,7 +499,7 @@ type < class < id < inline < !important
 }
 
 /* tr이나 td 에 child 선택자를 사용가능 
-왜? 같은 종유의 요소만 올 수 있음 */
+왜? 같은 종류의 요소만 올 수 있음 */
 
 /* 첫번째 td- 숫자부분 */
 /* 글자, 숫자를 인라인 으로 취급한다.  */
@@ -549,7 +549,8 @@ type < class < id < inline < !important
     vertical-align: middle;
     /* div 안된다. td 안 에서만 세로정렬이 적용되고 
     일반적으로 vertical-align은 인라인 요소간 세로방향 정렬이다. */
-    /*vertical-align  은  원래 인라인에 적용된다.   */
+    /*vertical-align  은  원래 인라인에 적용된다 vertical은 div에서는 안된다. 
+    인라인, 인라인 블록에서 적용된다. .   */
 }
 
 /* 앞에 tr이 있는 tr만 하위 td에 디자인 */
