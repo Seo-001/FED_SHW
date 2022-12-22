@@ -254,6 +254,8 @@
     background-color: rgb(141, 129, 124);
 
     /*테두리  */
+    /* bd 라고 적어야 픽셀 모양 색깔이 나옴, 
+    bo 라고 적지 말기 */
     border: 2px solid #dbdbdb;
 
     /* 둥근모서리 brad  */
@@ -337,4 +339,83 @@
         2. padding-box -> 패딩가지 적용 
         3. content-box -> 내용영역만 적용 (패딩, 보더 빠짐) */
     background-clip: content-box;
+}
+
+/* 작품명  */
+.work figcaption {
+    font-family: "Gugi", cursive;
+}
+.work figcaption cite {
+    /* 기본 이탤릭 해제 :fsn */
+    font-style: normal;
+}
+/* 작품이미지 */
+.work img {
+    border: 15px ridge goldenrod;
+}
+
+/* 파트별 a 링크 요소 공통 디자인 */
+.cont article a {
+    /* 글자크기 fz */
+    font-size: 17px;
+    /* 줄간격 lh */
+    line-height: 2.5;
+    /* 자간 ls */
+    letter-spacing: -1px;
+}
+
+/* 가상클래스 hover 오버시 */
+.cont article a:hover {
+    /* 글자색 c*/
+    color: #85a143;
+    /* 글자그림자 ts */
+    text-shadow: 1px 1px 1px #000;
+}
+
+/* 공통 ul */
+.cont article ul {
+    /* 리스트 타입 lst */
+    list-style-type: "✨";
+    /* square 사각형, disc 원형, circle 원형
+    -> 따옴표 안에 다른 문자형 을 넣 울 수 있음 
+    -> 윈도우키 + 점(.) -> 아이콘 가능  */
+}
+
+/* 공통 ol */
+.cont article ol {
+    /* 숫자형 리스트 스타일 lit */
+    list-style-type: upper-roman;
+    /* upper-roman 로마자 대문자
+    순서를 표시하는 종류는 너무 많다.!  */
+}
+
+/* 주요 뉴스 li별 글자색 변경하기*/
+/* [자식요소 선택 가상 클래스: 자식요소 종류가 같아야 함] 
+    요소: first-child -> 첫번째 자식요소
+    요소: nth-child -> n번째 자식요소
+    요소: last-child -> 마지막째 자식요소
+*/
+
+/* [css 적용 우선순위]
+type < class < id < inline < !important
+
+-> 더쎈 선택자이어여도 부모요소를 업고 잇는 것이 더 쎄다 
+예 > #my < .cont #my*/
+
+.cont article ul li:first-child a {
+    color: red;
+}
+.cont article ul li:nth-child(2) a {
+    color: green;
+}
+.cont article ul li:nth-child(3) a {
+    color: blue;
+}
+
+/* 블릿과 글자사이 간격 주기  */
+/* 글자를 기준으로 왼쪽 패딩을 주는 것이 일반적  */
+
+.cont article ul li,
+.cont article ol li {
+    padding-left: 10px;
 }
