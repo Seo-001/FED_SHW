@@ -25,6 +25,9 @@
                 height: 400px;
                 border: 3px dashed rgb(233, 125, 125);
                 /* 마영오: 블록박스 가로중앙 */
+                /* 마영오는 부모요소 wrap 에서 해준다고 해서 자식 div 에게 상속이 되지 않는다. 
+                박스 세팅은 자기 자신이 가지고 있는 것이다. 
+                글자크기, 정렬은 상속이 된다.  */
                 margin: 0 auto;
                 margin-bottom: 20px;
                 /* 둥근모서리 brad */
@@ -80,7 +83,6 @@
             <h2 class="tit">background-size : 100% 100%</h2>
             <div></div>
             <h2 class="tit">background-size : contain</h2>
-            <!-- 무조건 다 보이게 한다 -->
             <div></div>
             <h2 class="tit">background-size : cover</h2>
             <div></div>
