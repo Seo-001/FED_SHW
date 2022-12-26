@@ -22,6 +22,7 @@
 
                 /* body뿐 아니라 html의 값도 같이 설정해줘야한다.그러나 만약 내가 이렇게 부모의 값에 의존하지 않고, 부모의 값에 상관없이 값을 설정하고 싶다 하면,   그때 vh 단위 vh=view height 를 쓰는 것이다.height: 100vh;   의 의미는 100%의 뷰 하이를 다 쓰고 싶다는 의미. */
             }
+
             body {
                 /* 패딩탑 pt */
                 /* padding-top: 50px; */
@@ -39,7 +40,11 @@
                 /* 배경반복여부 bgr 반복안함(no-repeat) */
                 background-repeat: no-repeat;
                 /* 배경 고정 : bga - 고정의 기준은 보이는 화면! */
+                /* fix 는 웹 문서 화면을 아래로 스크롤 하더라도 배경이미지는 고정되고 내용이 이미지위에 떠 있는 것처럼 보인다.
+                만약 이미지를 fix했으면 배경은 아래에 고정되어 있고, 스크롤 막대를 움직이면 문서 내용만 배경이미지 위에서 움직인다.
+                fix는 화면이 스크롤되더라도 배경 이미지가 고정된다.  */
                 background-attachment: fixed;
+
                 /* 배경위치 : bgp */
                 background-position: center;
                 /* 배경크기 : 채우기(cover) bgz */
