@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>블록요소 가로크기 설정</title>
         <style>
-            .bx{
+            .bx {
                 border: 5px dashed blue;
                 padding: 15px;
                 margin: 15px;
                 /* 글자:스두크/줄체 */
-                font: bold 24px "맑은 고딕","굴림";
+                font: bold 24px "맑은 고딕", "굴림";
                 text-align: center;
             }
             /* 가로600px */
-            .bx1{
+            .bx1 {
+                width: 600px;
             }
-            /* 최대가로크기 1000px */
-            .bx2{
+            /* 최대가로크기 1000px maw, 1000px 을 넘기지 않는 것이다.  1000px 을 유지하고 있다가 줄어듬 */
+            /* 최대크기 1000px 을 유지하다가 이것보다 작아지면 auto로 전환됨
+            -> 가로스크롤 안생기는 세팅 속성 */
+
+            .bx2 {
+                max-width: 1000px;
             }
-            /* 최소가로크기 700px */
-            .bx3{
+
+            /* 최소가로크기 700px mw700*/
+            .bx3 {
+                min-width: 700px;
+                /* 최소 700px 보다 작아지면 그 크기를 유지하고, 이것보다 클 때는 auto 상태로 변경된다. */
             }
+
             /* 최대가로크기 1200px,
             최소가로크기 800px */
-            .bx4{
+            .bx4 {
+                max-width: 1200px;
+                min-width: 800px;
+                /* 1200px 보다 안커지고 800px 보다 안작아지고 중간 영역 에서 auto로 전환됨 */
             }
             /* 가로크기 800px, 최대가로크기 80% */
-            .bx5{
+            .bx5 {
+                width: 800px;
+                min-width: 80%;
+                /* 기본 사이즈 800px 로 유지하다가 최대 80% 가로크기 때문에 부모 박스가 줄어들 대 80% 유지를 위해 자동 변경 됨! */
             }
             /* 
                 [ 최대가로크기 / 최소가로크기 설정 정리! ]
@@ -42,38 +57,34 @@
 
 
             */
-
-            
         </style>
     </head>
     <body>
         <h1>블록요소 가로크기 설정</h1>
 
         <div class="bx bx1">
-            가로크기 600px <br>
+            가로크기 600px <br />
             (width:600px)
         </div>
         <div class="bx bx2">
-            최대가로크기 1000px <br>
+            최대가로크기 1000px <br />
             (max-width:1000px)
         </div>
         <div class="bx bx3">
-            최소가로크기 700px <br>
+            최소가로크기 700px <br />
             (min-width:700px)
         </div>
         <div class="bx bx4">
-            최대가로크기 1200px <br>
-            (max-width:1200px) <br>
-            최소가로크기 800px <br>
+            최대가로크기 1200px <br />
+            (max-width:1200px) <br />
+            최소가로크기 800px <br />
             (min-width: 800px)
         </div>
         <div class="bx bx5">
-            가로크기 800px <br>
-            (width:800px) <br>
-            최대가로크기 80% <br>
+            가로크기 800px <br />
+            (width:800px) <br />
+            최대가로크기 80% <br />
             (max-width:80%)
         </div>
-
-
     </body>
 </html>

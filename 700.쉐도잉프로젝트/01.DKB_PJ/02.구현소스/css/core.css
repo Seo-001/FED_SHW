@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+/* 웹폰트, 공통 클래스 셋팅 css - core.css */
+
+/* core 는 전체에서 쓰는 클래스, 웹폰트 분류, 다른 페이지에도 적용 하는 것  ,
+common 은 상단 ,하단의 구체적인 코딩이 반복되는 것을 뽑은 것 common은 여기저기 나오는 것*/
+
+/* 웹폰트 CDN */
+@import url("https://fonts.googleapis.com/css2?family=Gugi&family=Nanum+Gothic&family=Single+Day&family=ZCOOL+KuaiLe&display=swap");
+/* 
+    1. 캐릭터 설명 제목체
+    font-family: 'Gugi', cursive;
+    2. 캐릭터 설명 내용체
+    font-family: 'Single Day', cursive;
+    3. 캐릭터 설명 한자체
+    font-family: 'ZCOOL KuaiLe', cursive;
+    4. 전체 공통체(메뉴 등)
+    font-family: 'Nanum Gothic', sans-serif;
+*/
+
+/* 전체 웹포트 적용하기  body가 출력 영역의 최상위*/
+body {
+    font-family: "Nanum Gothic", sans-serif;
+}
+
+/* 중앙 속박스 클래스  공통으로 쓸 것 이라서 코어가 적음*/
+.ibx {
+    max-width: 1200px;
+    /* 1200 를 유지하다가 이것보다 작아지면 auto로 가로크기가 전환되어 가로스크롤이 안생기게 됨! */
+    margin: 0 auto;
+}
