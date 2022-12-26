@@ -22,6 +22,9 @@ dd {
     padding: 0;
 }
 
+/* body에 height:100% 안하는 이유: main.css 에 background에 fix 가 들어가는데,
+fix는 화면 기준 body 높이에 상관없니 적용이 되기에, 
+그것을 말하기 위해  height:100% 가 없음*/
 /* 2. 리스트 초기화 */
 ul,
 ol {
