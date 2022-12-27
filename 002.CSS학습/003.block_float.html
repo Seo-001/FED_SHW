@@ -33,11 +33,15 @@
             1. 마지막 블록자식요소를 넣고 clear:both를함
             (경우2)
 
-            2. 가상요소 ::after로 clear:both설정함
+            2. 가상요소 ::after로 clear:both설정함 
+            ::after 개념 설명을 위해 적은 것임.
+            ::befor 도 자주 더 많이 애용 해서 적는다. 
+
             (경우3)
 
             3. float된 자식요소의 부모박스에 
                 overflow:hidden 처리를 함
+                -> float 가 해제되지 않은 상태에서 
                 -> 자식요소 숨기기를 할 경우
                 float으로 요소가 유동적인 상태를
                 마무리하는 속성 내부적 셋팅됨!
@@ -218,6 +222,10 @@
             세번째 clear:both + float:left, 네번째 float:right <br />
             부모요소에 가상요소 after를 사용하여 clear:both구현
         </h3>
+        <!-- 망가지지 않았다면  clear:both + float:left 라고  적을 필요없이 
+            둘 중 하나만 적으면 된다. 
+            float:left 적으면 된다.  만약 없애고 싶으면  clear:both라고만 적으면 된다. 
+        -->
         <div class="wrap flclb">
             <div class="bx bx1 fll"></div>
             <div class="bx bx2 flr"></div>
