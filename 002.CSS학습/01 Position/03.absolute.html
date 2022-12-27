@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>03.absolute 포지션</title>
+        <style>
+            .bx {
+                width: 100px;
+                height: 100px; /* border-box = 박스 사이즈로 하면 높이가 달라지게 되고 보더를 포함해서,, 결국 라인 헤이트도 달라지게 된다.*/
+                border: 2px solid blue;
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold; /* fwb */
+                /* 글자세로중앙 */
+                line-height: 100px;
+            }
+
+            /* 첫번째 앱솔루트 !!*/
+
+            #a1 {
+                position: absolute;
+
+                /************************************************ 
+                [3. absolute 포지션]
+
+
+                 ************************************************/
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+            }
+
+            /* 첫번째 박스에 포지션 체크 */
+            #r1 {
+                position: relative;
+                background: url(./images/ab5.jpg) no-repeat center/cover;
+            }
+
+            /* 또하나의 relative   relative 끼리는 맨 나중에 쓰는것이 위에 올라온다.
+            static 보다 아래로 내려갈려면 z-index 는 마이너스로 주면 된다. 마우스로 클릭도 안된다. body 보다도 아래로 내려간다.*/
+            #r2 {
+                position: relative; /* por */
+
+                background: url(./images/ab5.jpg) no-repeat center/ cover;
+            }
+
+            #s1 {
+                background-color: lightcoral;
+            }
+            #s2 {
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bx" id="r1">r1</div>
+        <div class="bx" id="s1">s1</div>
+        <div class="bx" id="a1">a1</div>
+        <div class="bx" id="r2">r2</div>
+        <div class="bx" id="s2">s2</div>
+        <div class="bx" id="a2">a2</div>
+    </body>
+</html>

@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8" />
 
-        <title>02.static 포지션</title>
+        <title>02.relative 포지션</title>
         <style>
             .bx {
                 width: 100px;
                 height: 100px; /* border-box = 박스 사이즈로 하면 높이가 달라지게 되고 보더를 포함해서,, 결국 라인 헤이트도 달라지게 된다.*/
                 border: 2px solid blue;
                 text-align: center;
-                font-size: 24;
+                font-size: 24px;
                 font-weight: bold; /* fwb */
                 /* 글자세로중앙 */
                 line-height: 100px;
@@ -20,13 +20,15 @@
             #r1 {
                 position: relative;
 
-                /* 위치이동속성 적용안됨 */
+                /* 위치이동속성 적용됨 */
                 top: 50px; /* t숫자 */
                 left: 50px; /* l숫자 */
 
-                /* static 의 위치이동은 margin 으로!  */
-                /* margin-top: 50px;
-                margin-left: 50px; */
+                /* 마진적용 
+                원래 집에서 마진이 밀려 있다. 
+                마진버텀을 주게 되니 밑에가 밀린다. */
+                margin-top: 20px;
+                margin-left: 20px;
 
                 /*********************************  
                 [2. relative 포지션]
@@ -44,15 +46,69 @@
                 5. 위치값 설정시 2가지 기준으로만 셋팅한다. 
                 - 위, 아래 중하나 
                 - 좌,우 중 하나
+                -다 합쳐도 중복이 안된다. 
                 top, left / top,right
                 bottom, left / bottom, right 
+                top:50px bottom:-50px 해도 중복 안된다. 
 
-                6. 
+                6. 마진은 그대로 적용된다.!
+                (다른 static 요소에 영향을 미친다. )
+                -> 본래의 위치에 마진이 적용 된 것이므로, 
+                상대위치이동값도 변경된 것을 보인다.! 
+
+                7. relative 는 위치이동값을 사용하지 않으면 
+                static 과 똑같은 특징을 가진다. 
+
+                8. relative는 겹쳐질 수 있으므로, 나중에 하든, 먼저하든 
+                위아래 관계가 성립한다. 
+                기본적인 위아래 관계는 아래와 같다. 
+                (1) static 보다는 항상 위! 
+                (2) static 포지션이 아닌 경우 나중에 그려진 요소가 위! 
+                (손 놓고 손등 때리기)
+                (3) Z-index 속성으로 숫자가 크면 위! 
+
+                9. 부모자격!!!
+                - 포지션이 static 만 아니면 부모자격은 다 있다. 
+                
+                ---------------------------------------
+
+                [z-index 란?]
+                - static 이 아닌 포지션만 적용! 
+                - 숫자가 큰것이 위로 가낟.
+                - 겹쳐지는 포지션을 준 경우 위치 순서를 정하여 디스플레이를 변경하는 속성
+                - z 는 화면 방향의 축을 의미함
+                - 기본값은 0 -> 같은 층에 있는 모든 요소는 0
+                - 숫자를 비교하여 큰 숫자가 위에 위치한다. 
+                -> 기본값 0 이므로 마이너스 값은 static 보다 아래로 내려 간다. 
+                (직접 선택툴로 선택이 안되는 이유는 body 보다 아래에 있어서다.)
+
+
+                ((유의사항))
+                z-index 비교시에 형제 레벨에서 먼저 비교하고 
+                그 다음 하위 자손에서 비교하기 때문에 여러부분에서 z-index 를 
+                남발할 경우 위아래 위치관계 설정에 혼선이 생긴다. 
+                마구 주지 말자! 
+                부모급에서 처리하고, 부모 자식에서는 부모에서 100을 주고 
+                같은 부모급에 안주면 안준 부모와 또 비교하고 
+                여러가지로 비교하게 된다. 
+
 
 
                 *********************************/
+
+                z-index: 1;
                 background: url(./images/ab5.jpg) no-repeat center/cover;
             }
+
+            /* 또하나의 relative   relative 끼리는 맨 나중에 쓰는것이 위에 올라온다.
+            static 보다 아래로 내려갈려면 z-index 는 마이너스로 주면 된다. 마우스로 클릭도 안된다. body 보다도 아래로 내려간다.*/
+            #r2 {
+                position: relative; /* por */
+                bottom: 70px;
+                right: -50px;
+                background: url(./images/ab5.jpg) no-repeat center/ cover;
+            }
+
             #s1 {
                 background-color: lightcoral;
             }
