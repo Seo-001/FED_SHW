@@ -1,0 +1,25 @@
+
+
+Instruction
+
+https://www.kbiocmocenter.or.kr/%EC%9B%90%EC%95%A1%EB%9D%BC%EC%9D%B8
+
+CO2 Incubator
+
+5~10L 배양 scale로 종세포 배양 시 CO2 gassing 및 습도 유지를 통한 세포 생장 환경을 제공합니다.
+
+Wave Bioreactor
+
+Rocking 을 이용한 Air Circulation 방식으로 종세포 배양 시 CO2 incubator에 비해 다양한 조건으로 Conditioning이 가능합니다.
+
+CO2를 이용한 pH 유지, O2 공급을 통한 DO를 조절합니다.
+
+Sampling Port 를 이용한 시료 채취 및 배양액 상태를 분석합니다.
+
+Bioreactor
+
+Stirring 을 이용한 Air Circulation 방식으로 기본 기능은 Wave와 동일하나 정밀 배양이 가능합니다.
+
+다양한 Port 구성으로 Additional Solution Feeding 및 Virus Infection 용이합니다.
+
+Gassing : Overlay / Sparger를 설정합니다
