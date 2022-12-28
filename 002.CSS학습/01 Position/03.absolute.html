@@ -23,8 +23,52 @@
 
                 /************************************************ 
                 [3. absolute 포지션]
+                - 절대적인 부모를 기준하여 위치를 이동하는 포지션 
+                    - 부모 자격을 따져서 기준을 삼는다. 
+                    - (단, 위치 속성값을 쓴 경우에만!!!!)
+
+                1. absolute 포지션은 위치이동값을 쓰기 전과 후로 나눌 수 있다. !!
+                
+                (1) 위치 이동값을 쓰지 않은 경우 
 
 
+                - 자기보다 위에 있는 static한 요소  (자리를 차지 하는 것을 static 이라고 한다. relative 도 static 하다.)를
+                존중하여 그 아래에 위치함
+                ->> 젠틀앱솔루트!! 
+                + 어떤 요소의 자식요소로 앱솔루트를 주는 경우 위치값을 안 쓸 때 그 부모박스 (싸고 있는 박스)안에 가만히 있는다.! !
+                ->> 젠틀앱솔루트!! 
+
+                - 자기보다 아래쪽에 위치하고 있는 static 한 요소는 앱솔루트를 인식하지 못하여 같은자리에 위치함! 
+                (즉, 위나 아래에 위치함! )
+
+                (2) 위치이동값을 사용한 경우 
+                - 위치 이동값을 사용한 부분에 대해서만 !!!!!!!!
+                앱솔루트가 위치를 잡을 때 기준이 되는 부모는 static 이 아닌 요소가  부모다.!!! 
+
+                - 일반적으로 부모요소가 싸고 있는 요소지만
+                앱솔루트가 위치를 잡기 위한 기준이 되는 부모는 static 이 아닌 요소가 부모다.!!! 
+
+                - static 이 아닌 포지션이란?
+                relative, absolute, fixed, staicky
+
+                -> 위치 이동값을 쓰지 않은 부분에 대해서는 부모를 찾지 않는다.  (젠틀함!!)
+
+                -> 부모 자격이 있는 부모요소들 중 가장 가까운 것이 부모다! 
+
+                -> 만약 부모자격이 모두 없으면 보이는 화면(window) 을 기준한다.
+                (보이는 화면은 body가 아니다.! 스크롤이 생겨도 스크롤위쪽에 보이는 화면만을 지칭한다.)
+
+                ->>>>>>>>>>또한!
+                width 나 height 값을 % 줄 경우 부모자격이 있는 요소를 기준하여 크기를 잡는다. 
+
+                (일반적으로 바로 싸고 있는 직계 부모박스를 기준한다.)
+
+                2. 앱솔루트의 가로, 세로크기를 주지 않은 경우 
+                일반적으로 block 요소이므로 width:auto 로써부모끝까지 차지하지만 
+                앱솔루트는 
+                내용만큼만 그 크기가 자동으로 설정됨
+                (앱솔루트 판타롱스타킹! )
+ 
                  ************************************************/
                 background: url(./images/ab1.jpg) no-repeat center/cover;
             }
@@ -35,11 +79,19 @@
                 background: url(./images/ab5.jpg) no-repeat center/cover;
             }
 
+            /* 두번째 앱솔루트  */
+            #a2 {
+                position: absolute; /* poa */
+                top: 0;
+                left: 0;
+                /* 나의 부모는?  부모가 아무도 없을 시 보이는 화면이 부모가 된다.*/
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+            }
             /* 또하나의 relative   relative 끼리는 맨 나중에 쓰는것이 위에 올라온다.
             static 보다 아래로 내려갈려면 z-index 는 마이너스로 주면 된다. 마우스로 클릭도 안된다. body 보다도 아래로 내려간다.*/
             #r2 {
                 position: relative; /* por */
-
+                left: 100px;
                 background: url(./images/ab5.jpg) no-repeat center/ cover;
             }
 
@@ -48,6 +100,54 @@
             }
             #s2 {
                 background-color: lightblue;
+            }
+
+            /* 부모를 찾는 앱솔루트  */
+            .bx2 {
+                border: 2px dotted orange;
+                padding: 50px;
+                font-size: 24px;
+                text-align: center;
+            }
+
+            /* 각 부모박스 */
+            .s5 {
+                position: relative;
+                background-color: lightblue;
+            }
+            .s6 {
+                position: relative;
+                background-color: lightcoral;
+            }
+
+            .s7 {
+                position: relative;
+                background-color: lightgreen;
+            }
+
+            .s8 {
+                position: relative;
+                background-color: lightsalmon;
+            }
+
+            /* 부모찾는 앱솔루트 박스  */
+            .abs {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                color: #fff;
+                background: url(./images/ab1.jpg) no-repeat center/cover;
+            }
+            /* .a3 는 위치 이동값이 없으므로 젠틀하다.!! -> 싸고 있는 박스안에 가만히 있는다.!  
+            */
+            /* 부모찾는 앱솔루트 .a4 */
+            .a4 {
+                top: 0;
+                left: 0;
+                /* 나의 부모는? */
+                width: 20%;
+                height: 40%;
+                /* 앱솔루트인데 %로 가로, 세로 크기를 줄 경우, 부모자격박스를 기준한다.!  */
             }
         </style>
     </head>
@@ -58,5 +158,22 @@
         <div class="bx" id="r2">r2</div>
         <div class="bx" id="s2">s2</div>
         <div class="bx" id="a2">a2</div>
+
+        <!-- 부모를 찾는 앱솔루트! -->
+        <!-- .bx2.s5{s5}>.bx2.s6{s6}>.bx2.s7{s7}>.bx2.s8{s8}>.abs.a3{a3}    ctrl space 바 미리보기가능 -->
+        <div class="bx2 s5">
+            s5
+            <div class="bx2 s6">
+                s6
+                <div class="bx2 s7">
+                    s7
+                    <div class="bx2 s8">
+                        s8
+                        <div class="abs a3">a3</div>
+                        <div class="abs a4">a4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -33,8 +33,8 @@
 
 2.CSS학습
 1)인라인 float (복습완료)
-2)포지션 (position 중요!!!)
-
+2)포지션 (position 중요!!!) (static , relative 복습완료)   (Z-index 아직) (레이아웃2번째 아직)
+ 
 3. 쉐도잉 프로젝트 : 도깨비 PJ
 - 메인 영역 상세코딩
 
