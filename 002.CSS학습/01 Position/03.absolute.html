@@ -219,6 +219,32 @@
                 /* 부모는  .s8*/
                 border: 4px dotted red;
             }
+
+            /*  앱솔루트끼리는 서로 겹친다. */
+            .absimg {
+                width: 92px;
+                height: 115px;
+                border: 10px ridge #900;
+            }
+            .absimg img {
+                position: absolute;
+                /* 젠틀 앱솔루트 이여서 
+                부모자경이 없는 일반 static 요소여도 그자리에 가만히있음
+                -> 앱솔루트 이미지끼리는 서로 겹쳐짐
+                위, 아래관계에는 Z-index로 변경가능 */
+            }
+
+            /* 두번째 이미지 닥스만 투명하게  */
+            .absimg img:last-child {
+                /* 투명도 : opacity(0: 투명, 1: 볼투명, 0.몇 : 반투명) */
+                opacity: 0; /* op 숫자 */
+                /* 트랩지션: transition -trs */
+                transition: .5s;
+            }
+            /* 부모박스 오버시 닥스 보이기  */
+            .absimg:hover img:last-child {
+                opacity: 1;
+            }
         </style>
     </head>
     <body>
@@ -234,7 +260,7 @@
             <img src="./images/ab2.jpg" alt="타노스" />
         </div>
 
-        <!-- 앱솔루트기리는 서로 겹친다.! -->
+        <!-- 앱솔루트끼리는 서로 겹친다.! -->
         <div class="absimg">
             <img src="images/ab3.jpg" alt="토르" />
             <img src="images/ab4.jpg" alt="닥스" />
