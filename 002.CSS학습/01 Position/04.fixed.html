@@ -5,6 +5,9 @@
 
         <title>04.fixed position</title>
         <style>
+            body {
+                height: 3000px;
+            }
             /* fixed 박스 공통 */
             .fxd {
                 position: fixed; /* pof */
@@ -209,14 +212,24 @@
             /*  최하위 요소일지라도 fixed 되면 보이는 화면으로 기준하여 변경됨!   */
             .f3 {
                 position: fixed;
-                top: 10%;
+                top: 25%;
+                right: -140px;
+                z-index: 99999;
+                transform: 0.3s;
+            }
+
+            /* 마우스 오버시 나오기 */
+            .f3:hover {
                 right: 0;
             }
             .f3 span {
                 /* 글자박스 */
                 position: absolute;
+                /* absolute 가 더 중요한 것이고, right:100% 이면 부모박스에 밀려서 어떻게 보면 
+                0이다. 그러나 글자때문에 그나마 공간이 있는 것이고 완전 밀려서 세로로 나타는 것이다. */
                 top: 0;
                 right: 100%;
+
                 /* 부모는 ?  .f3이다.  */
                 width: 50px;
                 height: 100%;
