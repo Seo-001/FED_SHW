@@ -138,6 +138,12 @@ body {
     background: url(../images/eachBG.jpg) no-repeat bottom/cover;
     /* bottom 을 기준으로 해서 커버한다.  */
 
+    /* 둥근모서리 : 왼쪽위부터 시계방향*/
+    border-radius: 20px 5px 5px 20px;
+
+    /* 위쪽 여백 */
+    margin-top: 20px;
+
     /* 트랜지션 -두가지 변화상태를 애니메이션 해주는 속성
     transition : 속성 시간 이징 지연 */
     transition: height 0.4s;
@@ -183,10 +189,13 @@ body {
 /* 캐릭터 첫번째 문단 첫글자 가상요소로 디자인 변경하기  */
 
 .cd p:first-child::first-letter {
+    line-height: ;
     font-size: 50px;
     color: cyan;
     /* 그림자로 글자 테두리 주기, 블러없는 그림자 4개 사용 */
     text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 1px #000;
+    /* 글자크기로 인해 줄간격 조정 */
+    line-height: 1;
 }
 
 /* 각 캐릭터 박스별 첫글자 색 변경  */
