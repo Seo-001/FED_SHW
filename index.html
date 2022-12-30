@@ -3,98 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <title>아카이브 페이지</title>
-        <style>
-            html,
-            body {
-                margin: 0;
-                padding: 0;
-                height: 100%;
-
-
-               
-                /* 보이는 화면에 기준하여 높이값을 설정함 
-                자식요소에 퍼센트를 줄 때 이 기준이 있어야 한다. 
-                -> 직계 하위 자식 요소가 높이값을 %로 설정할 때 body가 기준이 된다! */
-                /* 가로는 원래 auto 값이고, 세로는  들어가는 값만큼 나타나기에 height: 100% 라고 줘서 보이는 화면에 100% 나오도록 설정함 */
-                /* 여기에서는 html와 body 동시에 height:100% 를 주는 것 */
-                /* 요렇게 height를 100%주길 원하는 요소 div.content1의 부모인 html과 body에게 height:100% 설정을 해주면,
-                자식 또한 부모의 높이를 받아 height:100%가 적용된다.  */
-                /* 화면내 DIV 박스를 정확하게 % 값으로 조정할려면 html, body태그에 width :100% height:100% 라고 주어야 한다.  *
-                /
-
-                /* body뿐 아니라 html의 값도 같이 설정해줘야한다.그러나 만약 내가 이렇게 부모의 값에 의존하지 않고, 부모의 값에 상관없이 값을 설정하고 싶다 하면,   그때 vh 단위 vh=view height 를 쓰는 것이다.height: 100vh;   의 의미는 100%의 뷰 하이를 다 쓰고 싶다는 의미. */
-            }
-
-            body {
-                /* 패딩탑 pt */
-                /* padding-top: 50px; */
-            }
-
-            /* 페이지박스 : div 블록 박스*/
-            .mybox {
-                width: 100%;
-                height: 100%;
-
-                /*  */
-                /* 배경이미지 넣기 bgi,  */
-                /* url  함수이다. css 자체적인 함수이다. */
-                background-image: url(./imgs/worksbg.jpg);
-                /* 배경반복여부 bgr 반복안함(no-repeat) */
-                background-repeat: no-repeat;
-                /* 배경 고정 : bga - 고정의 기준은 보이는 화면! */
-                /* fix 는 웹 문서 화면을 아래로 스크롤 하더라도 배경이미지는 고정되고 내용이 이미지위에 떠 있는 것처럼 보인다.
-                만약 이미지를 fix했으면 배경은 아래에 고정되어 있고, 스크롤 막대를 움직이면 문서 내용만 배경이미지 위에서 움직인다.
-                fix는 화면이 스크롤되더라도 배경 이미지가 고정된다.  */
-                background-attachment: fixed;
-
-                /* 배경위치 : bgp */
-                background-position: center;
-                /* 배경크기 : 채우기(cover) bgz */
-                background-size: cover;
-            }
-
-            /* 2번째 페이지 박스 */
-
-            .mbx2 {
-                background-image: url(./imgs/bg_mainvisual.jpg);
-
-                /* 맨 마지막으로 준 배경이기에 기존의 화면에 덮어씌운것이다. 그리고 
-                다른 것들은 h1, pwrap 은 동일하게 준것이다. 
-                밑에서 보이는 이유는 
-                배경이미지 소속은 박스이나, 화면의 기준 (display)로 나타나기 때문에 밑에서 부터 벗겨지듯이 나타난다. 
-                - background-attachment: fixed; 지정 시 배경 이미지는 화면에 고정된 상태. 요소만 스크롤됨. */
-            }
-
-            /* 페이지별 컨텐츠 박스 */
-            .pwrap {
-                background-color: rgb(255, 255, 255, 0.525);
-                /* 둥근모서리 bora */
-                border-radius: 20px;
-                /* 가로중앙 */
-                margin: 0 auto;
-                /*양쪽 마진이 auto 면 양쪽을 등분해서 가로 중앙이 된다.  */
-            }
-
-            /* h1요소 */
-            .tit {
-                /* 기본 마진 없음 */
-                margin: 0;
-                /* 패딩 */
-                padding: 20px;
-                /* 글자중앙 */
-                text-align: center;
-            }
-        </style>
+        <link rel="stylesheet" href="./zcss/main.css" />
     </head>
     <body>
+        <div id="top">
+            <header class="top">
+                <!-- 1. 타이틀 -->
+                <h1 class="tit">
+                    <img src="./imgs/mylogo_14.png" alt="나의로고" />
+                    <br />
+                    shw의 아카이브 페이지
+                </h1>
+            </header>
+        </div>
         <!-- 1번페이지 -->
         <div class="mybox mbx1">
-            <!-- 1. 타이틀 -->
-            <h1 class="tit">
-                <img src="./imgs/mylogo_14.png" alt="나의로고" />
-                <br />
-                shw의 아카이브 페이지
-            </h1>
             <div class="pwrap">
                 <!-- 1. html 학습 링크 파트 -->
                 <section class="part pt1">
