@@ -1,5 +1,60 @@
 @charset "utf-8";
 /* 아카이브 CSS - main.css */
+
+html {
+    scroll-behavior: smooth;
+    /* #아이디명 스크롤 이동시 부드럽게 애니메이션 이동형 */
+}
+/* 상단영역 */
+#top {
+    position: fixed;
+    width: 100%;
+    /* 판타롱스타킹 이므로 100% 로 가로폭 확장  */
+    height: 300px;
+    top: 0;
+    left: 0;
+    /* 맨위로 올리기  */
+    z-index: 99999;
+}
+
+/************** GNB메뉴 **************/
+/* 인라인 블록으로 쓰지는 말것  */
+/* GNB박스 width 크기를 주고 마영오! */
+.gnb {
+    width: 600px;
+    margin: 0 auto;
+}
+/* ul 초기화 (3無) */
+.gnb ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/* li 옆으로 흐르게 float */
+.gnb li {
+    float: left;
+    text-align: center;
+    width: 150px;
+}
+/* ul박스 가상요소로 clear처리 */
+.gnb ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* GNB a요소 */
+.gnb a {
+    /* 글자색,밑줄없앰 */
+    color: lime;
+    text-decoration: none;
+
+    font-size: 30px;
+    /* 그림자로 글자 테두리주기
+    블러없는 그림자 4개사용 */
+    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+}
+
 html,
 body {
     margin: 0;
@@ -59,8 +114,19 @@ body {
                 - background-attachment: fixed; 지정 시 배경 이미지는 화면에 고정된 상태. 요소만 스크롤됨. */
 }
 
+.mbx3 {
+    background-image: url(../imgs_landscape/001.jpg);
+}
+
+.mbx4 {
+    background-image: url(../imgs_landscape/002.jpg);
+}
 /* 페이지별 컨텐츠 박스 */
 .pwrap {
+    position: relative;
+    top: 300px;
+    height: calc(100% - 350px);
+    /* 부모높이값보다 300px 만큼 조금 더 크기를 뺀 높이값은 calc () 로 계산한다. */
     background-color: rgb(255, 255, 255, 0.525);
     /* 둥근모서리 bora */
     border-radius: 20px;
