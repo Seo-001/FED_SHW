@@ -2,7 +2,7 @@
 /* 어벤져스 CSS - avengers.css */
 
 /* 웹폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap");
 
 /* 
     font-family: 'Monoton', cursive;
@@ -58,7 +58,7 @@ body {
 
 /* 1. 전체 타이틀 */
 .tit {
-    font-family: 'Monoton', cursive;
+    font-family: "Monoton", cursive;
     color: #fff;
     font-size: 70px;
     /* 글자두께 보통 */
@@ -124,6 +124,17 @@ cbx 안에 이미지와 설명 모두를 포함한다.  */
 
     /* 트랜지션: 속시이지 */
     transition: 0.8s ease-in-out;
+}
+
+/* .cd 직계 하위 div 디자인 이전하기 
+-> 만든 이유: height 값을 0으로 숨기려는데, 
+padding 과 border 때문에 숨겨지지 많음!
+따라서 이것을 직계하위 div로 이전함*/
+.cd > div {
+    border: 2px solid #fff;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.373);
 }
 
 /* 캐릭터 이미지 */
@@ -203,14 +214,10 @@ body:hover .cbx:nth-child(5) {
 
     /* 박스세팅 */
     width: 300px;
-    border: 2px solid #fff;
-    padding: 15px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.373);
 
     /* 글자세팅 */
     color: #fff;
-    font-family: 'Single Day', cursive;
+    font-family: "Single Day", cursive;
     text-shadow: 1px 1px 1px #000;
 
     /* 처음에 투명하게 */
