@@ -214,6 +214,15 @@ body:hover .cbx:nth-child(5) {
 
     /* 박스세팅 */
     width: 300px;
+    /* height: auto 하면 상태를 풀어주는 것은 auto, 내용만큼 늘어남
+    auto는 특정값이 아니라서, 애니메이션이 적용안됨
+    0에서 auto로 바뀌라고 애니메이션 시키면 적용안됨 */
+    /* 처음에  height값 0으로 박스 숨기기 
+    -> 이유: 투명상태로 오버되는 경우를 없애기 위해 */
+
+    height: 0;
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
 
     /* 글자세팅 */
     color: #fff;
@@ -231,6 +240,14 @@ body:hover .cbx:nth-child(5) {
 .cbx:hover .cd {
     top: 0;
     opacity: 1;
+    height: auto;
+    /* 전체적으로 트팬지션이 설정되어 있으나, height 값이 
+    특정값(px, %) 으로 설정되지 않고 
+    auto 일 경우 애니메이션이 되지않는다. 
+    애니메이션이 되지 않게 하려는데, 잘됐다.!!
+    만약 적용된느 것을 안되게 할려면 
+    transition 에서 개별셋팅해야 한다.
+     */
 }
 
 /* 왼쪽 진행 글자박스 클래스 */
