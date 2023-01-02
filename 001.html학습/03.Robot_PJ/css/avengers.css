@@ -1,0 +1,241 @@
+@charset "utf-8";
+/* 어벤져스 CSS - avengers.css */
+
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap');
+
+/* 
+    font-family: 'Monoton', cursive;
+    font-family: 'Single Day', cursive;
+*/
+
+/* 초기화 */
+html,
+body,
+h1,
+h2,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    /*  html 의 기준은 윈도우 화면이다. 
+height:100% 보이는 화면 다 채워라!
+bdoy 100% 는 html을 기준하며 
+html 100% sms window (보이는 화면)을 기준한다.
+% 세팅시 html, body 모두 세팅해야 적용된다.
+어벤져스 달걀모양이 차지 하고 있는 거만큼 body가 차지 하고 있었음. 앱솔루트는 날라다니고 있어서 자리를 차지 하고 있는 것이 아니다. 그래서 높이 100% 세팅함 
+---------------------
+가끔 width:100% 를 잡는 경우가 있다. 
+아무것도 안주면 width:auto 임, 둘간의 차이는?
+width:100%는 컨텐트 영역을 크기를 채우도록 셋팅함
+따라서 보더나 패딩을 줄 경우 박스가 커지고 스크롤바가 생김 또는 box-sizing: border box 라고 지정해서 
+auto 처럼 안으로 포함시키도록 해야 한다. 번거롭다.
+특별한 경우가 아니라면 auto 상태로 놓으면 보더와 패딩이 내부에 자동으로 포함된다.
+
+*/
+}
+
+/* 초기세팅 */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+body {
+    /* 배경이미지 채우기 */
+    background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
+    /*  fixed : 전체 영역에서 이미지 고정(화면을 스크롤해도 배경 고정)
+    픽스하는 과정에서 혹시  가로세로 비율이 안맞다면 center 중앙을 맞추어 주고(세로는 기본값이니깐 center 만 써주어도 됨) cover는 비율을 맞추면서 다채워라
+    */
+    /*전체 body 스크롤바 숨기기  
+    나가는 컨텐츠 숨겨짐 + 스크롤바도 숨김*/
+    overflow: hidden;
+}
+
+/* 1. 전체 타이틀 */
+.tit {
+    font-family: 'Monoton', cursive;
+    color: #fff;
+    font-size: 70px;
+    /* 글자두께 보통 */
+    font-weight: normal;
+    text-align: center;
+    /* 위아래 패딩 */
+    padding: 50px 0;
+}
+
+/* 2. 메인 캐릭터 박스  */
+.abx {
+    position: relative;
+    /* 부모자격 : .cbx의 부모, 가만히 있으면서 부모자격만 주고 싶어서 relative */
+    width: 300px;
+    height: 400px;
+    /* 배경이미지 */
+    background: url(../ab_img/ab0.jpg) no-repeat center/cover;
+    /*둥근모서리-> 원형 50% */
+    border-radius: 50%;
+    margin: 0 auto;
+    /* 앱솔루트는 마영오가 안먹힌다. 
+    부모찾아 삼만리 이거나, 젠틀해도 떠다지는 것으로 여겨야 한다. */
+    /* 글로우 빛나는 효과 : 박스그림자 
+    box-shadow : x y blur spread 색
+    inset 은 내부 그림자*/
+
+    box-shadow: 0 0 50px 10px cyan, inset 0 0 20px lightgreen;
+}
+
+/* 캐릭터 박스  */
+/* 이미지가 아니라 cbx에 주는 이유 
+cbx 안에 이미지와 설명 모두를 포함한다.  */
+
+.cbx {
+    /* 앱솔루트 포지션 
+  위치값 주기전 상태: 모두 겹침, 싸고 있는 박스에 그대로 있다.(젠틀) 크기는 내용만큼 자동으로 되어 있음, 나중것이 기본 위 */
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+    /* 부모는? .abx */
+
+    /* 
+    [앱솔루트 자식박스]
+    부모박스의 정중앙 위치하기
+    top : calc(50% - 자기 height절반)
+    left : calc(50% - 자기 width절반)
+    -> 원리 : 50% 밀고 자신크기 절반 뺴서 
+    정중앙으로 위치를 이동하는 것 
+
+    계산은 calc() CSS 함수를 사용
+    (+, - 연산시 기호 앞뒤를 꼭 띄어쓴다.)
+    
+    */
+    /* 박스크기 설정 */
+    width: 150px;
+    height: 150px;
+
+    /* 박스테두리 */
+    /*     outline: 3px dotted yellow; */
+
+    /* 처음에 투명 */
+    opacity: 0;
+
+    /* 트랜지션: 속시이지 */
+    transition: 0.8s ease-in-out;
+}
+
+/* 캐릭터 이미지 */
+.cbx img {
+    /* 크기를 박스에 맞춘다. -> 이미지가 왜곡된다.
+  어떡하지? 
+  -> object-fit : cover 를 쓴다.*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 
+    object-fit 속성
+    -> 이미지나 동영상을 박스에 맞출 때 옵션을 설정해 주는 속성
+    1. fill : 설정값에 강제적용 (가로세로 훼기본값)
+    2. contain: 박스에 모두 보임
+    3. cover : 박스를 비율에 맞게 채움
+    -> 빈틈없이 채우며 배경 cover 와 유사한 효과를 준다. 
+    */
+
+    /* 이미지 둥글게  */
+    border-radius: 50%;
+    /* 이미지에 50% 적용해야 overflow=hidden 줄 필요 없고,  overflow=hidden 을 만약 싸고 있는 박스에 주게 되면 설명글이 나올 수 가 없다. */
+
+    /* 글로우 효과 */
+    box-shadow: 0 0 30px 10px lightgreen;
+}
+
+/* body에 오버시 전체 opacity 보이게 하기 */
+body:hover .cbx {
+    opacity: 1;
+}
+
+/* 2-1 아이언맨 */
+body:hover .cbx:nth-child(1) {
+    top: -10%;
+    left: -60%;
+    /* top, left 를 0% 라고 준 뒤, 개발에서 조절함, % 이기때문에 위치이동이 쉽다. 픽셀로 하지 말고,   */
+    /* 나중에 트랜지션을 줄 것이기 떄문에, 
+    top, left 위치값바꾸지 말것, 
+    같은 속성 left 면 left 로 적용해야 한다.  */
+    /* % 이기 떄문에 부모박스로부터의 % 이다.  */
+}
+
+/* 2-2 타노스 */
+body:hover .cbx:nth-child(2) {
+    top: -10%;
+    left: 108%;
+}
+
+/* 2-3 토르 */
+body:hover .cbx:nth-child(3) {
+    top: 58%;
+    left: -62%;
+}
+
+/* 2-4 닥스 */
+body:hover .cbx:nth-child(4) {
+    top: 58%;
+    left: 108%;
+}
+
+/* 2-5 스타로 */
+body:hover .cbx:nth-child(5) {
+    top: 112%;
+    /* left 는 중앙 위치 이므로 
+  셋팅하지 않음 */
+}
+
+/* 캐릭터 설명박스 공통 */
+.cd {
+    position: absolute;
+    top: 50%;
+    /* 처음에 내려가 있고 오버시 0으로 
+    top 값 올라옴 */
+
+    /* 부모는? .cbx(앱솔루트) */
+
+    /* 박스세팅 */
+    width: 300px;
+    border: 2px solid #fff;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.373);
+
+    /* 글자세팅 */
+    color: #fff;
+    font-family: 'Single Day', cursive;
+    text-shadow: 1px 1px 1px #000;
+
+    /* 처음에 투명하게 */
+    opacity: 0;
+
+    /* 트랜지션:속시이지 */
+    transition: 0.4s ease-out;
+}
+
+/* .cbx에 오버시 글자박스 보이기 */
+.cbx:hover .cd {
+    top: 0;
+    opacity: 1;
+}
+
+/* 왼쪽 진행 글자박스 클래스 */
+.ltxt {
+    left: -230%;
+}
+/* 왼쪽 진행 제목 오른쪽 정렬 */
+.ltxt h2 {
+    text-align: right;
+}
+
+/* 오른쪽 진행 글자박스 클래스 */
+.rtxt {
+    right: -230%;
+}
