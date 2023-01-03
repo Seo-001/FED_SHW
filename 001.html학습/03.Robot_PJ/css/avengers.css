@@ -2,7 +2,7 @@
 /* 어벤져스 CSS - avengers.css */
 
 /* 웹폰트 */
-@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Single+Day&display=swap');
 
 /* 
     font-family: 'Monoton', cursive;
@@ -71,7 +71,7 @@ auto 처럼 안으로 포함시키도록 해야 한다. 번거롭다.
     width: 100%;
     z-index: 9999; /* 가장 위 */
 
-    font-family: "Monoton", cursive;
+    font-family: 'Monoton', cursive;
     color: #fff;
     font-size: 70px;
     /* 글자두께 보통 */
@@ -237,6 +237,11 @@ body:hover .cbx:nth-child(5) {
   셋팅하지 않음 */
 }
 
+/* 캐릭터 설명박스 추가 설명  
+.cd 에서 height = 0 을 주면 완전히 없어지지 않았다.패딩과 보더가 있으면서, 0이 안된다. 
+height =0으로 만들려면 패딩과 보더가 없는 순수한 박스가 있어야 한다. 순수한 박스에 height=0, overflow=hidden 을 하면 숨겨진다. hover로 안잡힌다. 내부에 있는 박스(div)를 하나 만들고, 거기에 패딩과 보더를 주고, 가장 밖에 있는 박스(cd)는 0 으로 만들어서 만져지는 것이 없다.   
+*/
+
 /* 캐릭터 설명박스 공통 */
 .cd {
     position: absolute;
@@ -261,7 +266,7 @@ body:hover .cbx:nth-child(5) {
 
     /* 글자세팅 */
     color: #fff;
-    font-family: "Single Day", cursive;
+    font-family: 'Single Day', cursive;
     text-shadow: 1px 1px 1px #000;
 
     /* 처음에 투명하게 */
@@ -353,11 +358,11 @@ padding 과 border 때문에 숨겨지지 많음!
 
 /* 가상클래스로 화살표 모양 넣기 */
 #pg1 .gobtn::after {
-    content: "🔽";
+    content: '🔽';
 }
 
 #pg2 .gobtn::after {
-    content: "🔼";
+    content: '🔼';
 }
 
 /* 개별위치 */
