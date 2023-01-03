@@ -79,6 +79,19 @@ auto 처럼 안으로 포함시키도록 해야 한다. 번거롭다.
     text-align: center;
     /* 위아래 패딩 */
     padding: 50px 0;
+
+    /* 트랜스폼
+    -> y축 상단이동 + x축 회전 90도 + 스케일0 (안보임) */
+    transform: translateY(-200px) rotate(90deg) scale(0);
+
+    /* 트랜지션 */
+    transition: transform 3s ease-in-out;
+}
+
+/* 오버시 타이틀 트랜스폼 */
+body:hover .tit {
+    /* 트랜스폼 : 원래위치로! 그리고 X 축 회전, 원래크기! */
+    transform: translateY(0) rotateX(720deg) scale(1);
 }
 
 /* 1. 페이지 박스  공통*/
@@ -171,6 +184,14 @@ cbx 안에 이미지와 설명 모두를 포함한다.  */
 
     /* 글로우 효과 */
     box-shadow: 0 0 30px 10px lightgreen;
+    /* 트랜지션 : 속시이지 trs */
+    transition: transform 0.8s ease-in-out;
+}
+
+/* 오버시 이미지 변경 */
+body:hover .cbx > img {
+    /* 트랜스폼 회전하기 tfry*/
+    transform: rotateY(720deg);
 }
 
 /* body에 오버시 전체 opacity 보이게 하기 */

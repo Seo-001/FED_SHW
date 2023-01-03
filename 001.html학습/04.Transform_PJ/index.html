@@ -137,7 +137,8 @@
             #trans4:hover img {
                 /* 트랜스폼 y축 위치이동 */
                 transform: translateY(200%); /* tfty */
-                /* 100% 는 자기 크기 만큼만 이동한다.  */
+                /* 100% 는 자기 크기 만큼만 이동한다. 
+                부모요소 생각할 것 없는 % 이다.  */
             }
 
             /*5.translate(X축 거리, Y축 거리) - X, Y 축 이동
@@ -219,10 +220,21 @@
             /* 
             9. 복합적용하기 
             trnasform: 속성1 속성2 속성3 .......;
-            
-            
             */
+
+            #trans9:hover img {
+                /* 다중 트랜스폼 tf 
+                rotate 평면
+                */
+
+                transform: scale(5) translate(-200%, -100%) rotate(1200deg) skewX(50deg) rotate(5300deg);
+                /* 트랜지션 시간늘이기 */
+                transition-duration: 20s;
+            }
+
+            
         </style>
+
     </head>
     <body>
         <!-- 타이틀  -->
