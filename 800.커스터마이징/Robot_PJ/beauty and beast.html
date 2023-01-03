@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>미녀와 야수</title>
+        <!-- 파비콘 : 탭메뉴 표시 아이콘 이미지 -->
+        <link rel="shortcut icon" href="./bb_img/rose2.jpg" />
+        <link rel="stylesheet" href="./css/beauty and beast.css" />
+    </head>
+    <body>
+        <!-- 0. 전체 타이틀 -->
+        <h1 class="tit">Beauty and the Beast</h1>
+
+        <!-- 1-1. 캐릭터 소개 페이지 -->
+        <div class="page" id="pg1">
+            <!-- 2. 메인 캐릭터 박스 -->
+            <section class="abx">
+                <!-- 2-1. 벨  -->
+                <div class="cbx">
+                    <img src="./bb_img/01.jpg" alt="벨" />
+                    <!-- 소개글박스 -->
+                    <article class="cd ltxt">
+                        <div>
+                            <h2>벨</h2>
+                            <p>
+                                디즈니 애니메이션 미녀와 야수의 주인공이다. 마을 제일의 미녀이며 상냥하며 지혜로운
+                                아가씨로 호기심도 많고 모험을 동경한다. 이름의 뜻은 프랑스어로 Beauty, 즉 아름다움과
+                                미녀를 의미한다.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <!-- 2-2. 야수  -->
+                <div class="cbx">
+                    <img src="./bb_img/02.jpg" alt="야수" />
+                    <!-- 소개글박스 -->
+                    <article class="cd rtxt">
+                        <div>
+                            <h2>야수</h2>
+                            <p>
+                                디즈니 애니메이션 미녀와 야수의 남주인공으로 성의 주인이다. 본래 왕자였으나 마녀의
+                                저주를 받아 야수로 변해버린다.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <!-- 2-3.포츠부인   -->
+                <div class="cbx">
+                    <img src="./bb_img/03.jpg" alt="포츠부인" />
+                    <!-- 소개글박스 -->
+                    <article class="cd ltxt">
+                        <div>
+                            <h2>포츠부인</h2>
+                            <p>
+                                Mrs. Potts. 미녀와 야수의 등장인물. 성의 고용인들 중 하나이며 왕자가 마법에 걸려 야수로
+                                변할 때 찻주전자로 변했고 아들인 칩도 찻잔이 되었다. 콕스워즈와 함께 주방 관련 하인들을
+                                리드하는 걸 보면 주방 하녀장쯤의 높은 위치인 듯..
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <!-- 2-4. 콕스워드  -->
+                <div class="cbx">
+                    <img src="./bb_img/04.jpg" alt="콕스워드" />
+                    <!-- 소개글박스 -->
+                    <article class="cd rtxt">
+                        <div>
+                            <h2>콕스워즈</h2>
+                            <p>성의 집사장이며 왕자가 마법에 걸려 야수로 변할 때 탁상 시계로 변했다.</p>
+                        </div>
+                    </article>
+                </div>
+                <!-- 2-5. 루미에  -->
+                <div class="cbx">
+                    <img src="./bb_img/05.jpg" alt="루미에" />
+                    <!-- 소개글박스 -->
+                    <article class="cd rtxt">
+                        <div>
+                            <h2>루미에</h2>
+                            <p>
+                                Lumière. 미녀와 야수의 등장인물. 성의 시종장이며 왕자가 마법에 걸려 야수로 변할 때
+                                촛대로 변했다. 누구에게나 상냥하고 부드러운 성격이지만 콕스워즈와는 악우로 항상
+                                티격태격한다
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <!-- 예고편 보기 이동버튼 -->
+            <a href="#pg2" class="gobtn">예고편 보기</a>
+        </div>
+
+        <!-- 1-2. 예고편 동영상 페이지 -->
+
+        <div class="page" id="pg2">
+            <h2 class="subtit">미녀와 야수 예고편</h2>
+            <div class="mvbx">
+                <iframe
+                    src="https://www.youtube.com/embed/n7LZA4Er7_g"
+                    title="[미녀와 야수] 파이널 예고편"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <!-- [아이프레임 : iframe(inline frame)]
+            -> 외부 시스템, 페이지를 기존페이지에 불러와서 
+            디스플레이해주는 프레임 요소
+            -> 동영상 페이지 (유투브 등), 
+            다른 페이지를 한 페이지에서 모두 보여줄 때 등 활용됨
+            -> 필수속성 : src -> 페이지 경로값을 세팅함
+            -> 유의사항: width, height, border 를 css 에서 모두
+            셋팅할 것을 권고함
+            -->
+
+            <!-- 캐릭터 보기 이동버튼 -->
+            <a href="#pg1" class="gobtn">캐릭터 보기</a>
+        </div>
+    </body>
+</html>
