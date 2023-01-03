@@ -35,7 +35,8 @@ body {
     /* 배경이미지 채우기 */
     background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
     /*  fixed : 전체 영역에서 이미지 고정(화면을 스크롤해도 배경 고정)
-    픽스하는 과정에서 혹시  가로세로 비율이 안맞다면 center 중앙을 맞추어 주고(세로는 기본값이니깐 center 만 써주어도 됨) cover는 비율을 맞추면서 다채워라
+    픽스하는 과정에서 혹시  가로세로 비율이 안맞다면 center 중앙을 맞추어 주고(세로는 기본값이니깐 center 만 써주어도 됨) cover는 비율을 맞추면서 다 
+    채워라
     */
     /*전체 body 스크롤바 숨기기  
     나가는 컨텐츠 숨겨짐 + 스크롤바도 숨김*/
@@ -49,7 +50,7 @@ body {
     /*  html 의 기준은 윈도우 화면이다. 
 height:100% 보이는 화면 다 채워라!
 bdoy 100% 는 html을 기준하며 
-html 100% sms window (보이는 화면)을 기준한다.
+html 100% 는 window (보이는 화면)을 기준한다.
 % 세팅시 html, body 모두 세팅해야 적용된다.
 어벤져스 달걀모양이 차지 하고 있는 거만큼 body가 차지 하고 있었음. 앱솔루트는 날라다니고 있어서 자리를 차지 하고 있는 것이 아니다. 그래서 높이 100% 세팅함 
 ---------------------
@@ -173,6 +174,8 @@ cbx 안에 이미지와 설명 모두를 포함한다.  */
 }
 
 /* body에 오버시 전체 opacity 보이게 하기 */
+/* body에 오버를 준 이유: 트랜지션에서는 광범위한 곳에 주어야 작동이 된다. 애니메이션할 때는 이렇게 까지 할필요 없으나,
+지금 수업에서는 애니메이션 보다 트랜지션에 중점을 두었기 때문이다.  */
 body:hover .cbx {
     opacity: 1;
 }
@@ -232,6 +235,7 @@ body:hover .cbx:nth-child(5) {
 
     height: 0;
     /* 넘치는 자식요소 숨기기 */
+    /* 아래 쪽에 포지션 sticky 가 있으나,, 형제요소이기에 sticky에 영향없다.   */
     overflow: hidden;
 
     /* 글자세팅 */
@@ -289,7 +293,7 @@ padding 과 border 때문에 숨겨지지 많음!
 
 /* 서브 타이틀 */
 .subtit {
-    position: sticky;
+    position: sticky; /* 형제요소에 overflow: hidden 이 있으나 형제요소라서 상관없다. 그러나!!!!부모, 조상 요소에 있으면   sticky 작동안됨*/
     top: 100px;
     padding: 50px 0;
     text-align: center;
