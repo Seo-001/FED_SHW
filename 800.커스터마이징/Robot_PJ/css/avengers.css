@@ -25,24 +25,6 @@ ol {
     padding: 0;
 }
 
-/* 초기세팅 */
-a {
-    color: #fff;
-    text-decoration: none;
-}
-
-body {
-    /* 배경이미지 채우기 */
-    background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
-    /*  fixed : 전체 영역에서 이미지 고정(화면을 스크롤해도 배경 고정)
-    픽스하는 과정에서 혹시  가로세로 비율이 안맞다면 center 중앙을 맞추어 주고(세로는 기본값이니깐 center 만 써주어도 됨) cover는 비율을 맞추면서 다채워라
-    */
-    /*전체 body 스크롤바 숨기기  
-    나가는 컨텐츠 숨겨짐 + 스크롤바도 숨김*/
-    /*    overflow: hidden;  넘치는 페이지를 2개 만들기 위해 */
-}
-
-/* body의 높이값을 보이는 화면에 맞추기 */
 html,
 body {
     height: 100%;
@@ -61,6 +43,22 @@ auto 처럼 안으로 포함시키도록 해야 한다. 번거롭다.
 특별한 경우가 아니라면 auto 상태로 놓으면 보더와 패딩이 내부에 자동으로 포함된다.
 
 */
+}
+
+/* 초기세팅 */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+body {
+    /* 배경이미지 채우기 */
+    background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
+    /*  fixed : 전체 영역에서 이미지 고정(화면을 스크롤해도 배경 고정)
+    픽스하는 과정에서 혹시  가로세로 비율이 안맞다면 center 중앙을 맞추어 주고(세로는 기본값이니깐 center 만 써주어도 됨) cover는 비율을 맞추면서 다채워라
+    */
+    /*전체 body 스크롤바 숨기기  
+    나가는 컨텐츠 숨겨짐 + 스크롤바도 숨김*/
+    /*    overflow: hidden;  넘치는 페이지를 2개 만들기 위해 */
 }
 
 /* 0. 전체 타이틀 */
@@ -147,6 +145,17 @@ cbx 안에 이미지와 설명 모두를 포함한다.  */
     transition: 0.8s ease-in-out;
 }
 
+/* .cd 직계 하위 div 디자인 이전하기 
+-> 만든 이유: height 값을 0으로 숨기려는데, 
+padding 과 border 때문에 숨겨지지 많음!
+따라서 이것을 직계하위 div로 이전함*/
+.cd > div {
+    border: 2px solid #fff;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.373);
+}
+
 /* 캐릭터 이미지 */
 .cbx img {
     /* 크기를 박스에 맞춘다. -> 이미지가 왜곡된다.
@@ -206,7 +215,7 @@ body:hover .cbx:nth-child(4) {
     left: 108%;
 }
 
-/* 2-5 스타로드 */
+/* 2-5 스타로 */
 body:hover .cbx:nth-child(5) {
     top: 112%;
     /* left 는 중앙 위치 이므로 
@@ -244,17 +253,6 @@ body:hover .cbx:nth-child(5) {
 
     /* 트랜지션:속시이지 */
     transition: 0.4s ease-out;
-}
-
-/* .cd 직계 하위 div 디자인 이전하기 
--> 만든 이유: height 값을 0으로 숨기려는데, 
-padding 과 border 때문에 숨겨지지 많음!
-따라서 이것을 직계하위 div로 이전함*/
-.cd > div {
-    border: 2px solid #fff;
-    padding: 15px;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.373);
 }
 
 /* .cbx에 오버시 글자박스 보이기 */
