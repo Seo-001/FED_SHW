@@ -39,22 +39,22 @@
             /* 가상요소로 clear 세팅 */
             /* content: ' ' , display: block : 뒤에 내용이 빈 블럭요소를 만들겠다는 뜻.
 
-            clear: both 
-            : float이 적용된 요소 다음으로 나타나는 요소들이 더 이상 float의 영향을 받지 않도록 설정한다. 
-            clear: both로 양쪽 방향을 전부 clear 해준다.
-            float 속성을 자식 엘리먼트에 사용하게 되면 부모 엘리먼트가 자식의 높이를 감지할 수 없기 때문에 이를 반영하기 위한 방법이 필요하다.
-            1. 앞서 알아본 것처럼 float가 적용되면, normal flow 에서 제외됨
-            2. 자식 요소가 뜨게 되면서 부모는 자식 요소의 크기를 인식할 수 없게 되고 height는 0 이 됩니다.
-            3. normal flow 흐름대로 부모 요소의 다음 요소인 footer가 aside 위치로 이동
-            float 속성이 적용된 요소 다음 요소에 clear: both 를 적용하면
+                      clear: both
+                      : float이 적용된 요소 다음으로 나타나는 요소들이 더 이상 float의 영향을 받지 않도록 설정한다.
+                      clear: both로 양쪽 방향을 전부 clear 해준다.
+                      float 속성을 자식 엘리먼트에 사용하게 되면 부모 엘리먼트가 자식의 높이를 감지할 수 없기 때문에 이를 반영하기 위한 방법이 필요하다.
+                      1. 앞서 알아본 것처럼 float가 적용되면, normal flow 에서 제외됨
+                      2. 자식 요소가 뜨게 되면서 부모는 자식 요소의 크기를 인식할 수 없게 되고 height는 0 이 됩니다.
+                      3. normal flow 흐름대로 부모 요소의 다음 요소인 footer가 aside 위치로 이동
+                      float 속성이 적용된 요소 다음 요소에 clear: both 를 적용하면
 
-            레이아웃이 다시 normal flow 로 바뀌게 됩니다. 이런 방법을 float 해제(clear) 라고 합니다.
-            즉, float 적용된 다음 요소에서 float 해제를 처리하는 것 아니라
+                      레이아웃이 다시 normal flow 로 바뀌게 됩니다. 이런 방법을 float 해제(clear) 라고 합니다.
+                      즉, float 적용된 다음 요소에서 float 해제를 처리하는 것 아니라
 
-            float가 적용된 요소와 그 부모 요소 내에서 float가 해제되어야
+                      float가 적용된 요소와 그 부모 요소 내에서 float가 해제되어야
 
-            DOM 간에 의존성이 없어지고, 더 좋은 코드라고 볼 수 있습니다.
-  */
+                      DOM 간에 의존성이 없어지고, 더 좋은 코드라고 볼 수 있습니다.
+            */
             .cont::after {
                 content: "";
                 display: block;
@@ -79,24 +79,24 @@
                 transition: transform 0.6s;
             }
 
-            /* [Transform 효과 주기] 
-            - 선택 요소의 크기, 회전, 이동, 기울임 등 변형을 하기 위한 속성
-            - 2D ,3D 지원됨
-            1. rotateY (각도 deg) - Y축 회전
-            - deg 는 각도의 단위 (도: degree)
-            */
+            /* [Transform 효과 주기]
+                      - 선택 요소의 크기, 회전, 이동, 기울임 등 변형을 하기 위한 속성
+                      - 2D ,3D 지원됨
+                      1. rotateY (각도 deg) - Y축 회전
+                      - deg 는 각도의 단위 (도: degree)
+                      */
 
             #trans1:hover img {
                 /* 트랜스폼 Y축 회전 - tfry  */
                 transform: rotateY(180deg);
                 /* CSS 필터 적용하기
-                : 필터속성은 흑백, 흐림, 세피어, 명암, 채도 등 출력 이미지를 변경하고자 할때 사용하는 속성 */
+                          : 필터속성은 흑백, 흐림, 세피어, 명암, 채도 등 출력 이미지를 변경하고자 할때 사용하는 속성 */
                 /* https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px) 필터이미지 주소 */
                 filter: grayscale(100%);
             }
 
             /* 2. rotateX(각도 deg) - X축 회전
-            - deg 는 각도의 단위(도 :degree) */
+                      - deg 는 각도의 단위(도 :degree) */
 
             #trans2 img {
                 /* 트랜스폼 X축 회전 : tfrx */
@@ -113,12 +113,12 @@
             }
 
             /*3.translateX(거리) - X 축 이동
-            -단위 : px, % 등
-            -현재 위치로부터 이동
-            - 기준점은 요소의 왼쪽  
-            - % 단위를 쓸경우 기준은 요소의 width 값
-            - 이동방향 : + 오른쪽, -는 왼쪽
-            위치이동을 해야 할대는 tranlate, transform 을 주로 쓴다.  */
+                      -단위 : px, % 등
+                      -현재 위치로부터 이동
+                      - 기준점은 요소의 왼쪽
+                      - % 단위를 쓸경우 기준은 요소의 width 값
+                      - 이동방향 : + 오른쪽, -는 왼쪽
+                      위치이동을 해야 할대는 tranlate, transform 을 주로 쓴다.  */
 
             #trans3:hover img {
                 /* 트랜스폼 X축 위치이동 */
@@ -127,27 +127,27 @@
             }
 
             /*4.translateY(거리) - Y 축 이동
-            -단위 : px, % 등
-            -현재 위치로부터 이동
-            - 기준점은 요소의 위쪽  
-            - % 단위를 쓸경우 기준은 요소의 height 값
-            - 이동방향 : + 위쪽, -는 아래쪽
-            위치이동을 해야 할대는 tranlate, transform 을 주로 쓴다.  */
+                      -단위 : px, % 등
+                      -현재 위치로부터 이동
+                      - 기준점은 요소의 위쪽
+                      - % 단위를 쓸경우 기준은 요소의 height 값
+                      - 이동방향 : + 위쪽, -는 아래쪽
+                      위치이동을 해야 할대는 tranlate, transform 을 주로 쓴다.  */
 
             #trans4:hover img {
                 /* 트랜스폼 y축 위치이동 */
                 transform: translateY(200%); /* tfty */
-                /* 100% 는 자기 크기 만큼만 이동한다. 
-                부모요소 생각할 것 없는 % 이다.  */
+                /* 100% 는 자기 크기 만큼만 이동한다.
+                          부모요소 생각할 것 없는 % 이다.  */
             }
 
             /*5.translate(X축 거리, Y축 거리) - X, Y 축 이동
-            -단위 : px, % 등
-            -현재 위치로부터 이동
-            - 기준점은 요소의 위쪽과 왼쪽선  
-            - % 단위를 쓸경우 기준은 요소의 width, height 값
-            - 이동방향 : + 오른쪽/ 아랫쪽, -는 왼쪽/ 위쪽
-            */
+                      -단위 : px, % 등
+                      -현재 위치로부터 이동
+                      - 기준점은 요소의 위쪽과 왼쪽선
+                      - % 단위를 쓸경우 기준은 요소의 width, height 값
+                      - 이동방향 : + 오른쪽/ 아랫쪽, -는 왼쪽/ 위쪽
+                      */
 
             #trans5:hover img {
                 /* 트랜스폼 x, y축 위치이동 */
@@ -155,22 +155,22 @@
             }
 
             /* 6. rotate(각도deg)- 원형회전
-            - 각도의 숫자가 양수이면 시계방향 음수는 반시계방향
-            - 기본회전축은 정중앙 (변경가능 transform-original) */
+                      - 각도의 숫자가 양수이면 시계방향 음수는 반시계방향
+                      - 기본회전축은 정중앙 (변경가능 transform-original) */
             #trans6:hover img {
                 /* 평면회전 tfr */
                 transform: rotate(5478deg);
                 /* 트랜지션  */
                 transition-duration: 10s;
 
-                /* 
-                transition : 속시이지, 
-                개별설정이 가능함 
-                1. 속성 : transition-property 
-                2. 시간 : transition-duration
-                3. 이징 (가속도): transition-timing-function
-                4. 지연시간 : transition-delay
-                */
+                /*
+                          transition : 속시이지,
+                          개별설정이 가능함
+                          1. 속성 : transition-property
+                          2. 시간 : transition-duration
+                          3. 이징 (가속도): transition-timing-function
+                          4. 지연시간 : transition-delay
+                          */
             }
 
             /* 회전축 변경하기 */
@@ -178,37 +178,37 @@
                 transform-origin: 50px 170px;
 
                 /*
-                [트랜스폼 회전축 변경속성]
-                 transform-origin: 가로 세로; 
-                 가로값 : left, right, center, 몇 px, 몇 %;
-                 세로값 : top, bottom, center, 몇 px, 몇 %;
-                 기본값: 가로, 세포, center 임 
-                */
+                          [트랜스폼 회전축 변경속성]
+                           transform-origin: 가로 세로;
+                           가로값 : left, right, center, 몇 px, 몇 %;
+                           세로값 : top, bottom, center, 몇 px, 몇 %;
+                           기본값: 가로, 세포, center 임
+                          */
             }
 
-            /* 
-            7. skew - x, y 축 기울임
-            -skewX(각도deg), skewY(각도deg)
-            -skew(x축, y축)
-            - 각도가 양수/음수에 따라 기울림 방향이 달라짐 
-            */
+            /*
+                      7. skew - x, y 축 기울임
+                      -skewX(각도deg), skewY(각도deg)
+                      -skew(x축, y축)
+                      - 각도가 양수/음수에 따라 기울림 방향이 달라짐
+                      */
 
             #trans7:hover img {
                 transform: skew(30deg, 45deg);
             }
 
             /*
-            8. scale(x축 배수, y축 배수) 
-            - 값을 하나만 쓰면 양방향 같은 값으로 셋팅
-            - 배수가 1보다 크면 확대, 작으면 축소
-            - scaleX(배수), scaleY(배수) - x,y 별로 세팅
-            - 값이 0이면 사라짐
-            -> 가끔 크기가 정해진 요소를 일정크기로 축소, 확대해서 크기를 맞출 대도 용이함! 
-            */
+                      8. scale(x축 배수, y축 배수)
+                      - 값을 하나만 쓰면 양방향 같은 값으로 셋팅
+                      - 배수가 1보다 크면 확대, 작으면 축소
+                      - scaleX(배수), scaleY(배수) - x,y 별로 세팅
+                      - 값이 0이면 사라짐
+                      -> 가끔 크기가 정해진 요소를 일정크기로 축소, 확대해서 크기를 맞출 대도 용이함!
+                      */
 
             #trans8:hover img {
-                /* 트랜스폼 스케일 tf:s 
-                기준을 자기 자신 img 1이다. */
+                /* 트랜스폼 스케일 tf:s
+                          기준을 자기 자신 img 1이다. */
                 transform: scale(2);
             }
 
@@ -217,35 +217,102 @@
                 transform: scale(0);
             }
 
-            /* 
-            9. 복합적용하기 
-            trnasform: 속성1 속성2 속성3 .......;
-            */
+            /*
+                      9. 복합적용하기
+                      trnasform: 속성1 속성2 속성3 .......;
+                      */
 
             #trans9:hover img {
-                /* 다중 트랜스폼 tf 
-                rotate 평면
-                */
+                /* 다중 트랜스폼 tf
+                          rotate 평면
+                          */
 
                 transform: scale(5) translate(-200%, -100%) rotate(1200deg) skewX(50deg) rotate(5300deg);
                 /* 트랜지션 시간늘이기 */
                 transition-duration: 20s;
             }
 
-            
-        </style>
+            /*
+                      10. 앞뒤로 있는 이미지 뒤집기
+                      -셋팅: 한 박스 안에 이미지가 2장이 있고 이것을 겹치게 세팅한다.
+                      -> 앱솔루트로 셋팅한다.
+                      - 순서는 나중것이 위에 온다.
+                      - 적절한 트랜스폼, 트랜지션을 이용한다.!
+                      */
 
+            /* 박스의 가로, 세로 크기를 세팅한다. */
+            #trans10 {
+                width: 200px;
+                height: 200px;
+                /*가운데 정렬 풀어주기  */
+                text-align: left;
+                /* outline: 2px dashed lime; */
+            }
+
+            /* 이미지에 겹치도록 앱솔루트 포지션 셋팅 */
+            #trans10 img {
+                position: absolute;
+                /* 젠틀앱솔루트! 위치값을 주지 않아서, 부모자격이 없지만 그자리에 그대로 있다.
+                */
+                /* width: 100% 라면 부모찾다가 못찾아서 보이는 화면을 기준으로 화면이 다찬다.
+                주의: 크기를 %로 주지 말것 (부모를 찾음) */
+            }
+
+            /* 1. 보검이 원본 */
+            #trans10 img:last-child {
+                /* 0도 회전하기 */
+                transform: rotateY(0deg);
+                /* 트랜지션: 속시이지 - 0.4초 기다림 0.4초 애니*/
+                transition: 0.4s ease-out 0.4s;
+            }
+
+            /* 2. 보검이 오버시 */
+            #trans10:hover img:last-child {
+                /* 90도 회전하기 */
+                transform: rotateY(90deg);
+                /* 트랜지션: 속시이지 : 기다림없음*/
+                transition: 0.4s ease-in;
+                /* ease-in :  처음에 천천히 나중에 등속도 */
+            }
+
+            /* 3. 유정이 원본시 */
+            #trans10 img:first-child {
+                /* 90도 회전하기(처음상태) */
+                transform: rotateY(90deg);
+                /* 트랜지션: 속시이지 돌아올때는 기다리지마*/
+                transition: 0.4s ease-in;
+            }
+
+            /* 4. 유정이 오버시 */
+            #trans10:hover img:first-child {
+                /* 0도 회전하기 */
+                transform: rotateY(0deg);
+                /* 트랜지션: 속시이지 - 0.4초 기다림 0.4초 애니*/
+                transition: 0.4s ease-out 0.4s;
+                /* ease-out 나중에 천천히 처음엔 등속도 */
+            }
+        </style>
     </head>
     <body>
         <!-- 타이틀  -->
         <h1 class="tit">트랜스폼 연습</h1>
         <!-- 내용박스 -->
         <div class="cont">
-            <div id="trans1"><img src="images/cast01.jpg" alt="캐릭터" /></div>
-            <div id="trans2"><img src="images/cast02.jpg" alt="캐릭터" /></div>
-            <div id="trans3"><img src="images/cast03.jpg" alt="캐릭터" /></div>
-            <div id="trans4"><img src="images/cast04.jpg" alt="캐릭터" /></div>
-            <div id="trans5"><img src="images/cast05.jpg" alt="캐릭터" /></div>
+            <div id="trans1">
+                <img src="images/cast01.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans2">
+                <img src="images/cast02.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans3">
+                <img src="images/cast03.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans4">
+                <img src="images/cast04.jpg" alt="캐릭터" />
+            </div>
+            <div id="trans5">
+                <img src="images/cast05.jpg" alt="캐릭터" />
+            </div>
             <div id="trans6"><img src="images/cast01.jpg" alt="캐릭터" /></div>
             <div id="trans7"><img src="images/cast02.jpg" alt="캐릭터" /></div>
             <div id="trans8"><img src="images/cast03.jpg" alt="캐릭터" /></div>
