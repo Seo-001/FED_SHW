@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
 
         <title>트랜스폼 기본 사용법</title>
+
         <style>
             body {
                 background: url(./images/bg-main.jpg) no-repeat fixed center top/cover;
@@ -60,7 +61,8 @@
                 clear: both;
             }
             /* 캐릭터 공통 div */
-            /* 이미지는 두꼐가 없다. 이미지에 이벤트를 주지 않는다. 이미지를 싸고 있는 박스가 유지를 하면서 박스에 이벤트를 준다.      */
+            /* 이미지는 두꼐가 없다. 이미지에 이벤트를 주지 않는다. 이미지를 싸고 있는 박스가 유지를 하면서 박스에 이벤트를 준다.   
+            이미지가 만약 90도로 돌아갈 때 아예 없는 것도 같다. 그래서 div에 호버를 적용시켜야 한다.   */
             .cont > div {
                 /* 옆으로 흐르게 */
                 float: left;
@@ -76,6 +78,7 @@
                 height: 200px;
                 border-radius: 50%;
                 /* 트랜지션: 속시이지 */
+                /* 트랜지션은 이미지를 변화하는 과정을 애니메이션함, 먼저 주든, 같이 있든 상관없음 */
                 transition: transform 0.6s;
             }
 
@@ -90,6 +93,7 @@
                 /* 트랜스폼 Y축 회전 - tfry  */
                 transform: rotateY(180deg);
                 /* CSS 필터 적용하기
+                : 필터는 이미지를 변형시키기 위한 트랜지션 속성임
                           : 필터속성은 흑백, 흐림, 세피어, 명암, 채도 등 출력 이미지를 변경하고자 할때 사용하는 속성 */
                 /* https://www.w3schools.com/cssref/playit.php?filename=playcss_filter&preval=blur(5px) 필터이미지 주소 */
                 filter: grayscale(100%);
