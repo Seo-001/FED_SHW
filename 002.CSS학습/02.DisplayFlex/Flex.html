@@ -6,8 +6,12 @@
         <!-- 롯데월드 홈피 등분할 http://www.lotteworld.com/gate.html-->
         <title>플렉스 디스플레이 레이아웃</title>
         <style>
+            /* 마영오는 static 한 블록에게 먹인다. 
+            크기가 auto이니깐 , 줄여나가면 가운데가 있다.
+            글자는 text-align 으로 가운데
+            앱솔루트, 픽스일때는 마영오 안된다.*/
             /* 초기화 */
-            /*화면에 블릿은 없으나, 화면에 개발도구 화살표로 화면을 차지하는 공간이 나온다.  */
+            /*화면에 블릿은 없으나, 화면에 개발도구 화살표로 화면을 차지하는 공간이 나온다. 그이유는 ul 때문이다.  */
             html,
             body,
             ul,
@@ -28,20 +32,112 @@
             #wrap > ul {
                 height: 100%;
             }
-
-            /* li세팅 기본방식: float 사용 */
-            #wrap > ul > li {
+            /* <ul> 내부에 <li> 요소(list item)를 포함하여 각 항목을 표시한다. 대부분의 브라우저에서 리스트에는 원과 같은 불릿(bullet)이 표현된다. */
+            /*위에  ul에 높이를 강제높이 100% 주었기 때문에 li의 높이가 잡힌다.  
+            원래는 float 로 인해 부모인 ul이 자식의 높이를 인지못한다. 
+            강제높이가 있어서 float 해제를 안해도 된다. 퍼센트라서 그런것도 있다 .퍼센트가 부모를 기준으로 되는 거라서
+            */
+            /* li세팅 기본방식: float 사용 float는 인라인 블록이다. */
+            /* 
+            [li 세팅 기존방식 : float 사용]
+            1. 옆으로 흐를 요소에 직접 float 세팅
+            2. 등분할일경우 width 값 % 계산
+            3. 높이값을 부모에 채울 경우 height 100%  세팅
+            4. 부모박스에 높이값이 없이 자동으로 자식요소를 인식하려면 마지막 clear 속성 세팅이 필요하다
+            */
+            /*   #wrap > ul > li {
                 float: left;
                 width: 20%;
                 height: 100%;
+            }  */
+
+            /* first last 는 특징있다. 필요해서 있다. 마지막에서 몇번째라고 지정 가능 */
+            /* 각 파티션 박스에 배경 이미지 넣기 */
+            #wrap > ul > li:first-child {
+                background: url(./images/m01_bg.jpg) no-repeat center/cover;
+            }
+            #wrap > ul > li:nth-child(2) {
+                background: url(./images/m02_bg.jpg) no-repeat center/cover;
+            }
+            #wrap > ul > li:nth-child(3) {
+                background: url(./images/m03_bg.jpg) no-repeat center/cover;
+            }
+            #wrap > ul > li:nth-child(4) {
+                background: url(./images/m04_bg.jpg) no-repeat center/cover;
+            }
+            #wrap > ul > li:nth-child(5) {
+                background: url(./images/m05_bg.jpg) no-repeat center/cover;
+            }
+
+            /******************************************
+            [플렉스 디스플레이 박스]
+            flex 란? - flexible(유연한~ 에서 나온말)
+            
+            - 가변적인 자식요소를 컨트롤하기 위해 
+            CSS3 에서 새롭게 선보인 display 기술
+
+            [플렉스 셋팅법]
+            1. 대상: 컨트롤하고자 할 요소들의 직계 부모 요소  , 바로 싸고 있는 부모가 밑에 요소에 영향을 주는 것 
+            2. 등분할셋팅: 
+                - 자식요소를 같은 비율로 채울 때
+                - 자식요소에 flex 속성값을 1로 쓰면 된다. 
+            3. 일반적인 셋팅: 
+                - 특정 크기나 내용이 있는 블록 요소인 자식을 옆으로 흐르게 한다. (flex 셋팅 일단 불필요!)
+            ******************************************/
+
+            /* 플렉스 적용하기 */
+            #wrap > ul {
+                /*플렉스 박스 :df  */
+                display: flex;
+            }
+
+            /* 플렉스 적용 자식요소 */
+            #wrap > ul > li {
+                /* 등분할 플렉스 속성 */
+                flex: 1;
+            }
+
+            /* 타이틀 공통 */
+            .tit {
+                position: absolute;
+                top: 100px;
+                /* 포지션을 위에 준 것이 없어서 보이는 화면이 부모이다.  */
+                /* 앱솔루트는 마영오가 안된다. */
+                /* 가로 중앙 이동: 트랜스폼(트랜스레이트) */
+                transform: translateX(-50%);
+                /* 자신의 크기 절반(50%)만큼 왼쪽방향(-) 이동 */
+                left: 50%;
+
+                width: 500px;
+                height: 100px;
+                border: 5px double #fff;
+            }
+            /* 타이틀 하위 공통 li */
+            .tit > li {
+                /* 박스세팅 */
+                width: 50px;
+                height: 50px;
+                border: 3px solid #fff;
+                border-radius: 50%;
+                background-color: red;
+                text-align: center;
+                /* 글자세팅  font: 스두크/줄체 */
+                font: bold 14px/50px verdana;
+                color: #fff;
+            }
+            /* 타이틀 1  */
+            .t1 {
+                /* 플렉스박스 */
+                display: flex;
             }
         </style>
     </head>
     <body>
         <!-- 전체 랩핑박스  -->
         <div id="wrap">
-            <!-- 5개를 등분할 할것  ul li 로 주로 한다.-->
-            <!-- 파티션 박스 -->
+            <!-- 5개를 등분할 할것  ul li 로 주로 한다. 그룹핑하는 것을 의미함 
+            만약 div 로 하게 되면 결합도가 약하다.-->
+            <!-- 파티션 박스  -->
             <ul>
                 <li></li>
                 <li></li>
@@ -49,6 +145,15 @@
                 <li></li>
                 <li></li>
             </ul>
+
+            <!-- 타이틀 박스 1 -->
+            <ol class="tit t1">
+                <li>L</li>
+                <li>O</li>
+                <li>T</li>
+                <li>T</li>
+                <li>E</li>
+            </ol>
         </div>
     </body>
 </html>
