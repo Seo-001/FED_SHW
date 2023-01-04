@@ -118,7 +118,25 @@
         2) flex-shrink: 1 | 0 -> 작아질래? 1 응 | 0 아니
         3) flex-basis: 설정값(px,%,em,rem,vw등)
         -> width 가로크기를 설정하는 속성, width보다 basis가  더 쎄다
-          -> 만약 0을 쓰면 속성값 없음!  */
+        -> 만약 0을 쓰면 속성값 없음!  
+            
+
+        속성명-> order: 순번
+        순서를 정할 요소에 준다. 
+        예)
+        <li style="order:3"> </li>
+        <li style="order:1"> </li>
+        <li style="order:2"> </li>
+        <li style="order:5"> </li>
+
+        [ 자식요소 속성 중 order란? ]
+        - 원하는 순서로 정해서 박스가 나열되게함!
+        단, 부모 플렉스 박스에 flex-direction을 주지말것!(order쓰기 때문!)
+        
+        소스참고:
+        https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_order_2
+        
+          */
 
             /* 타이틀 공통 */
             .tit {
@@ -206,6 +224,10 @@
             basis 
             -기본크기가 basis , 아무것도 안주면 기본값이 auto 이다. 
             -가로크기를 basis 라고 한다. width 라고 안한다.
+
+            
+
+
 
         */
 
@@ -330,11 +352,11 @@
                 justify-content: center;
 
                 /* 수직방향 정렬: 등분향공간 
-                (space-evenly)
+                (space-evenly) 개발환경에서 안나와도 최근에 업데이트해서 나온다.
                 */
-                align-content: space-around;
+                align-content: space-evenly;
                 /* 
-                align-content 속성:
+                [align-content 속성]
                     - 진행방향의 수직으로 정렬
                     - 진행방향의 수직으로 여러줄이므로 content!
 
@@ -356,6 +378,44 @@
             .t6 li {
                 margin: 0 22px;
             }
+
+            /*타이틀박스 7 */
+            .t7 {
+                top: 50px;
+                right: 50px;
+                /* 기존의 left는 해제 */
+                left: auto;
+                /* 트랜스폼해제 */
+                transform: none;
+                width: 450px;
+                height: 200px;
+
+                /* 플렉스박스 */
+                display: flex;
+                /* 랩핑박스 */
+                flex-wrap: wrap;
+                /* 수평공간: 등분할 공간 */
+                justify-content: space-evenly;
+                /* 수직정렬(여러줄) : 중앙*/
+                align-content: center;
+            }
+
+            /* 자체응용- 줄바꿈을 위한 li */
+            /* 원리는 줄바꿈을 할 부분에서 가로크기 100%를 차지하게해서 줄바꿈 효과를 준다. */
+            .t7 li.brk {
+                /* width: 100%; */
+                flex-basis: 100%;
+                /* flex-basis: 100%; 는  width: 100%;와 같다.
+                flex-basis는 width와 동일하지만 flex에서만 사용가능
+                */
+
+                /* 기존의 디자인 없애기 */
+                height: 0;
+                border: none;
+
+                /* 위쪽 마진으로 간격주기  */
+                margin-top: 20px;
+            }
         </style>
     </head>
     <body>
@@ -365,11 +425,11 @@
             만약 div 로 하게 되면 결합도가 약하다.-->
             <!-- 파티션 박스  -->
             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li style="order: 3"></li>
+                <li style="order: 5"></li>
+                <li style="order: 2"></li>
+                <li style="order: 1"></li>
+                <li style="order: 4"></li>
             </ul>
 
             <!-- 타이틀 박스 1 -->
@@ -431,6 +491,25 @@
                 <li>L</li>
                 <li>D</li>
 
+                <li>W</li>
+                <li>O</li>
+                <li>R</li>
+                <li>L</li>
+                <li>D</li>
+            </ol>
+
+            <!-- 타이틀 박스 7-->
+            <ol class="tit t7">
+                <li>L</li>
+                <li>O</li>
+                <li>T</li>
+                <li>T</li>
+                <li>E</li>
+                <!-- 가상요소는 불가, 가운데이기 때문이다.  -->
+                <!-- 줄바꿈 li (내가 응용) -->
+
+                <li class="brk"></li>
+                <!-- div를 쓰게 되면 법칙에 안맞음 -->
                 <li>W</li>
                 <li>O</li>
                 <li>R</li>
