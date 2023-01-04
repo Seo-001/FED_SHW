@@ -96,7 +96,29 @@
             #wrap > ul > li {
                 /* 등분할 플렉스 속성 */
                 flex: 1;
+                /* flex: 1 같이 따라서 커지는 것이다. 
+ */
             }
+
+            /*[ flex 속성 : 플렉스 자식요소에 주는 속성 ]
+        -> flex : 한번에 아래 3가지 속성을 줌
+
+        flex: 1 숫자하나만 쓰면 
+        flex: 1 1 0 과 동일
+        해석) 
+        커질래? 응(1), 작아질래? 응(1), 가로크기 0 (설정없음, 관련안한다. 설정안한다.)
+        flex: 1 같이 따라서 커지는 것이다. 
+
+        따로 설정시 아래와 같다!
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+
+        1) flex-grow: 1 | 0 -> 커질래? 1 응 | 0 아니
+        2) flex-shrink: 1 | 0 -> 작아질래? 1 응 | 0 아니
+        3) flex-basis: 설정값(px,%,em,rem,vw등)
+        -> width 가로크기를 설정하는 속성, width보다 basis가  더 쎄다
+          -> 만약 0을 쓰면 속성값 없음!  */
 
             /* 타이틀 공통 */
             .tit {
@@ -149,14 +171,8 @@
         row 는 기본값이다. 안해줘도 기본값이 나온다. 
 
         
-        [flex-direction]: column으로 하게 되면 안에 있는 자식이  부모 박스 밖으로 나가는 경우가 있다. 
-            - 부모요소에 일정한 크기를 준 것이고,
-            - 자식요소인 것 맞으나, 바깥으로 나간 것이다. 
-            - 기본값은 visible 이다. 
-            -, overflow 속성값을 visible로 지정해줄 경우 컨텐트가 경계선 밖으로 삐져나오는 것을 볼 수 있습니다. overflow 속성이 visible로 설정되어 있는 엘리먼트는 내부에 주어진 공간보다 담고있는 컨텐트가 더 큰 경우, 컨텐트를 밖으로 밀어내는 한이 있더라도 끝까지 보여줍니다.
+      
 
-            justify 는 진행방향과 동일한 방향이다.
-            align은  진행방향과 직각이다. 
 
         [align-items 속성 ]:
         - 진행방향의 수직 정렬 속성
@@ -171,7 +187,127 @@
         글자기준선(baseline)을 기준으로 정렬함!
         (글자의 line-height를 변경해서 적용해봄!)
         
+        [flex-direction 속성 ]: 진행방향과 순서를 정함
+        1) row : 좌->우(기본값)
+        2) row-reverse : 우->좌
+        3) column : 위->아래
+        4) column-reverse : 아래->위
+
+        [flex-direction]: column으로 하게 되면 안에 있는 자식이  부모 박스 밖으로 나가는 경우가 있다. 
+            - 부모요소에 일정한 크기를 준 것이고,
+            - 자식요소인 것 맞으나, 바깥으로 나간 것이다. 
+            - 기본값은 visible 이다. 
+            -, overflow 속성값을 visible로 지정해줄 경우 컨텐트가 경계선 밖으로 삐져나오는 것을 볼 수 있습니다. overflow 속성이 visible로 설정되어 있는 엘리먼트는 내부에 주어진 공간보다 담고있는 컨텐트가 더 큰 경우, 컨텐트를 밖으로 밀어내는 한이 있더라도 끝까지 보여줍니다.
+
+            
+            justify 는 진행방향과 동일한 방향이다.
+            align은  진행방향과 직각이다. 
+            하나씩은 아이템, 여러개가 걸리면 콘텐드이다.
+            basis 
+            -기본크기가 basis , 아무것도 안주면 기본값이 auto 이다. 
+            -가로크기를 basis 라고 한다. width 라고 안한다.
+
         */
+
+            /* 타이틀 박스 2 */
+            .t2 {
+                top: 200px;
+
+                /* 플렉스박스 df*/
+                display: flex;
+                /* 진행방향 정렬 jcsb */
+                justify-content: space-between;
+                /* 수직방향정렬 ai*/
+                align-items: baseline;
+                /* baseline 글자아랫선맞춤 */
+            }
+
+            /* 줄간격변경 */
+            .t2 li:nth-child(2) {
+                line-height: 80px;
+            }
+            .t2 li:nth-child(4) {
+                line-height: 30px;
+            }
+
+            /* 타이틀 박스 2 */
+            .t2 {
+                top: 350px;
+
+                /* 플렉스박스 df*/
+                display: flex;
+
+                /* 수직방향정렬 ai*/
+                align-items: center;
+                /* baseline 글자아랫선맞춤 */
+            }
+            /* 4번째부터 li부터 끝을 보내기 
+            */
+            .t3 li:nth-child(4) {
+                margin-left: auto;
+                /* 가로방향: 선택요소의 떨어뜨리려는 방향으로 마진을 auto로 설정하면 flex에서 끝으로 이동시켜준다. */
+            }
+
+            /* 타이틀 박스 4 */
+            .t4 {
+                /* 오른쪽 박스 길쭉한 박스 */
+                top: 200px;
+                left: 50px;
+                width: 150px;
+                height: 500px;
+                /* 트랜스폼 해제 tfn:트랜지션주었다가 해제함 */
+                transform: none;
+
+                /* 플렉스박스 df*/
+                display: flex;
+
+                /* 플렉스 진행방향 */
+                flex-direction: column;
+                /* 수직방향정렬 중앙 */
+                align-items: center;
+            }
+
+            /* 수직방향일 때 마지막 요소만 끝으로 보내기(선택된 요소부터 끝으로 보내주기) */
+            .t4 li:last-child {
+                /* 수직방향 마진은 margin-bottom, margin-top */
+                margin-top: auto;
+            }
+
+            /* 타이틀박스5  */
+            .t5 {
+                top: 50px;
+                left: 50px;
+                width: 150px;
+
+                /* 트랜스폼 해제 tfn:트랜지션주었다가 해제함 */
+                transform: none;
+                /* 디스플레이 플렉스 */
+                display: flex;
+
+                /* flex-shrink 가 기본값으로 1로 세팅되어 있어서 무조건 줄어든다. */
+            }
+
+            .t5 li {
+                /* 부모박스가 줄어들 때 같이 자동으로 줄어들래? 
+                기본값-> 1(응) 줄어듬
+                -> 강제로 크기유지할 경우 0으로 변경
+                -> 밖으로 튀어나간다. 
+                */
+                flex-shrink: 0; /* fxs0 */
+
+                /* 
+                [flex 자식요소 속성을 세팅하지 않으면?]
+                기본값은 아래와 같다.!
+                flex:initial
+                즉 아래와 동일함
+                flex:0 1 auto
+                -> 두번째 값이 flex-shirk:1 로 세팅
+                그래서 부모박스 크기가 작아지면 
+                자식요소도 가로크기가 같이 줄어들게 됨
+                이값은 0으로 변경하면 자기 세팅된 원래 크기를 유지하며 부모박스 바깥으로 나가게됨!
+
+                */
+            }
         </style>
     </head>
     <body>
@@ -195,6 +331,42 @@
                 <li>T</li>
                 <li>T</li>
                 <li>E</li>
+            </ol>
+
+            <!-- 타이틀 박스 2 -->
+            <ol class="tit t2">
+                <li>W</li>
+                <li>O</li>
+                <li>R</li>
+                <li>L</li>
+                <li>D</li>
+            </ol>
+
+            <!-- 타이틀 박스 3 -->
+            <ol class="tit t3">
+                <li>W</li>
+                <li>O</li>
+                <li>R</li>
+                <li>L</li>
+                <li>D</li>
+            </ol>
+
+            <!-- 타이틀 박스 4 -->
+            <ol class="tit t4">
+                <li>W</li>
+                <li>O</li>
+                <li>R</li>
+                <li>L</li>
+                <li>D</li>
+            </ol>
+
+            <!-- 타이틀 박스 5 -->
+            <ol class="tit t5">
+                <li>W</li>
+                <li>O</li>
+                <li>R</li>
+                <li>L</li>
+                <li>D</li>
             </ol>
         </div>
     </body>
