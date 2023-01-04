@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <!-- 롯데월드 홈피 등분할 http://www.lotteworld.com/gate.html-->
+        <title>플렉스 디스플레이 레이아웃</title>
+        <style>
+            /* 초기화 */
+            /*화면에 블릿은 없으나, 화면에 개발도구 화살표로 화면을 차지하는 공간이 나온다.  */
+            html,
+            body,
+            ul,
+            ol {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* 블릿없애기, 차지 하는 공간 없애기 */
+            ul,
+            ol {
+                list-style: none;
+            }
+            /* 보이는 화면에 채우기 셋팅  */
+            html,
+            body,
+            #wrap,
+            #wrap > ul {
+                height: 100%;
+            }
+
+            /* li세팅 기본방식: float 사용 */
+            #wrap>ul>li{
+                float: left;
+                width: 20%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 전체 랩핑박스  -->
+        <div id="wrap">
+            <!-- 5개를 등분할 할것  ul li 로 주로 한다.-->
+            <!-- 파티션 박스 -->
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </body>
+</html>
