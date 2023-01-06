@@ -152,9 +152,56 @@
                 /* 마영오 안되는 이유
                 margin: 0 auto;  명령어는 중앙정렬을 시키는 명령어로 홈페이지를 전체적으로 가운데 정렬 시키거나 한 테이블 즉 한부분부분을 중앙정렬시킬때 필요한 명령어인데 여기서 이 명령어가 안 될시엔 아래와 같은 부분이 잘못 선언된 것인데 
                 첫째. 우선은 <!Doctype ~~~ 선언이 제대로 되있는지 또는 선언 위에 다른 명령어는 없는지를 확인해야 한다.
-                둘째. width가 정확해야 한다.이게 무슨말이냐 하면 폭이 지정되어 있어야한다. 예를 들자면 #main { width: 600px; margin: 0 auto; } 이런식으로 폭600px의 메인을 가운데 정렬하겠다. 라는 식의 명령어를 줘야지 단순히 #main { margin: 0 auto; } 이런식으로 선언을 하면 안된다.
-                셋째. inline속성 태그에 선언을 했다.inline 속성의 태그는 margin: 0 auto; 를 선언하여도 가운데 정렬이 되지 않는다. 이럴경우의 해결책으론 <SPAN>이 아닌 <DIV>로 바꿔 사용하거나 SPAN의 display속성을 block으로 바꿔주면 해결된다
+                둘째. width가 정확해야 한다.이게 무슨말이냐 하면 폭이 지정되어 있어야한다. 
+                예를 들자면 #main { width: 600px; margin: 0 auto; } 이런식으로 폭600px의 메인을 가운데 정렬하겠다. 라는 식의 명령어를 줘야지 
+                단순히 #main { margin: 0 auto; } 이런식으로 선언을 하면 안된다.
+                셋째. inline속성 태그에 선언을 했다.
+                inline 속성의 태그는 margin: 0 auto; 를 선언하여도 가운데 정렬이 되지 않는다. 
+                이럴경우의 해결책으론 <SPAN>이 아닌 <DIV>로 바꿔 사용하거나 SPAN의 display속성을 block으로 바꿔주면 해결된다
 
+ */
+
+                /* top, left, translate를 이용한 가운데 정렬
+                
+                position이 static이라면?
+                top, left 값을 조정해야 하는 엘리먼트의 position 값이 static이라면 top과 left는 적용되지 않는다
+
+                또한, position 값이 static이 아닌 다른 값이라면 top과 left는 적용되긴 하지만 absolute, relative 등 값에 따라서 결과가 달라지니 매우 주의해서 사용해야한다.
+
+                translate
+                저번에 작성했던 게시글 중 translate3d()와 일반적인 translate()의 차이를 적어 놓은 게시글이 있다. 거기에는 translate()의 원리에 대해서 적어 놓았는데 이번 게시글에서도 그 개념이 중요하게 쓰인다.
+
+                                                복습
+                    translate3d()는 하드웨어 가속을 사용하기 때문에 더 좋은 CSS 퍼포먼스를 구현할 수 있다. 따라서 애플 홈페이지에서도 일반적인 translate() 보다는 translate3d()를 사용하는 것으로 알고있다.
+                    .tempdiv {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%, 0);
+
+                    top, left 값으로 왼쪽 상단을 중앙으로 맞춘 후, translate()를 이용하여 엘리먼트를 가로, 세로 방향으로 각각 엘리먼트의 width, height 값의 -50%를 이동시킨다면 가운데정렬 을 할 수 있다.
+
+                    div{
+                        width: 500px;
+                        height: 300px;
+                        position: relative;
+                            }
+
+                    p{
+                        width: 300px;
+                        height: 180px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%); 
+                                    }
+                    <div> 영역 안에 있는 <p>를 <div> 내에서 가운데에 위치시키고 싶을 때, 단순히 position을 absolute 한 후, top과 left를 50%로 설정하는 오류를 범하게 된다.이게 무슨 말인지, 위 CSS를 설명을 하자면,position: absolute; 는 position: relative; 인 바로 위 부모 태그 <div>를 기준으로 위치를 설정하겠다는 뜻이다. 그래서 <p>는 부모 태그인 <div> 영역을 안에서만 위치를 정할 수 있다.
+                    position을 설정한 후 top, left 값을 정하면, <div> 영역 내 기준으로 위(top)와 왼쪽(left)에서부터 해당 값만큼 떨어진 곳에 <p>를 위치시킨다는 뜻이다.
+                    <div> 영역 안에 있는 <p>를 <div> 내에서 가운데에 위치시키고 싶을 때, 단순히 position을 absolute 한 후, top과 left를 50%로 설정하는 오류를 범하게 된다.
+                    <p>태그의 왼쪽 상단에 있는 꼭지점을 기준으로 <div>의 50%만큼의 위치로 이동하기 때문이다.
+                    <p>에  'transform: translate(-50%, -50%);'를 추가한다. <p>의 width, height의 50%만큼 X축, Y축의 마이너스 방향으로 위치를 옮기겠다 뜻이다. 
+
+                    이렇게 하면 <p>의 크기를 변경하더라도 위치는 항상 가운데에 위치하게 된다!}
  */
                 /* 가로 중앙 이동: 트랜스폼(트랜스레이트) */
                 transform: translateX(-50%);
