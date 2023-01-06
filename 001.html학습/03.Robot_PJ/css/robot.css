@@ -57,12 +57,37 @@ body * {
     height: 250px;
     /* 마영오 */
     margin: 0 auto;
+    /* 턱 깍기  */
+    border-radius: 30px 30px 50% 50%;
 }
 
 /* 로봇머리 직계하위 div는 모두 앱솔루트 */
 .head > div {
     position: absolute;
 }
+
+/* 로봇 머리에 가상 요소로 머리털 박스 만들기  
+가상요소도 자식이다. */
+.head::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -70px;
+    left: -15px;
+    /* 부모는? .head 이다.  */
+    width: 280px;
+    height: 200px;
+    background: url(../images/hair.png) no-repeat 0/100% 100%;
+    /* 맨위 */
+    z-index: 1;
+}
+
+
+/* 머리박스에 오버시 가상요소 가발 변경하기 */
+/* 가상클래스,가상요소는 떨어질 수 없다. 붙어쓸 수 없다.   */
+.head:hover::before {}
+
+
 /* 눈공통 */
 .eye {
     width: 50px;
@@ -74,7 +99,7 @@ body * {
     background-position: center;
     background-size: 100% 100%;
 
-    /*둥근 모서리 : 50% 원 */
+    /*둥근 모서리 : 50% 원*/
     border-radius: 50%;
     /* 보더이중선: double */
     border: 4px double #000;
