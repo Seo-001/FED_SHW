@@ -54,11 +54,12 @@ body * {
     /* 마영오가 먹히는 static 한 랠러티브를 줌 
     부모자격: 하위 div 들  */
     width: 250px;
-    height: 250px;
+    height: 150px;
     /* 마영오 */
     margin: 0 auto;
     /* 턱 깍기  */
-    border-radius: 30px 30px 50% 50%;
+    /*  clip-path: polygon(0 0, 0 50px, 30% 100%, 60% 100%, 100% 50%, 100% 0) */
+    /*    border-radius: 30px 30px 50% 50%; */
 }
 
 /* 로봇머리 직계하위 div는 모두 앱솔루트 */
@@ -82,11 +83,39 @@ body * {
     z-index: 1;
 }
 
-
 /* 머리박스에 오버시 가상요소 가발 변경하기 */
 /* 가상클래스,가상요소는 떨어질 수 없다. 붙어쓸 수 없다.   */
-.head:hover::before {}
+.head:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -120px;
+    left: -116px;
+    width: 450px;
+    height: 200px;
+    background: url(../images/hair4.png) no-repeat 0/100% 100%;
+    z-index: 1;
+}
 
+/* 가상요소는 1박스당 2개를 만들 수 있다. 
+머리박스 가상요소로 턱 만들기 */
+.head::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 100%;
+    /* 부모박스 높이만큼 밀어준다.! */
+    z-index: -1;
+    width: 250px;
+    height: 100px;
+    background: url(../images/metal01.jpg) no-repeat bottom/100%;
+    /* 턱 깍기 overflow : hidden 를 주는 것과 같다. 
+    히든 처리를 안 했을지라eh, 그래서 box-shadow 안된다. */
+    clip-path: polygon(0 0, 33.33% 100%, 66.66% 100%, 100% 0);
+
+    /* 박스 그림자 */
+    box-shadow: 0 10px 5px #000;
+}
 
 /* 눈공통 */
 .eye {
@@ -129,12 +158,43 @@ body * {
 }
 /* 입 */
 .mouth {
-    bottom: 20px;
-    left: 75px;
+    top: 175px;
+    left: 78px;
     width: 100px;
     height: 51px;
     background: url(../images/mouth.png) no-repeat 0/100% 100%;
 }
+
+/* 입옆에 변모양점 가상요소로 만들기  */
+.mouth::before,
+.mouth::after {
+    content: "";
+    display: block; /* 명시적으로 블락 */
+    position: absolute; /* 앱솔루트는 블락이긴 하지만 명시적으로 블락 표시함 */
+    top: -25px;
+    right: -25px;
+    /*부모는? .mouth */
+    width: 20px;
+    height: 20px;
+    background-color: rgb(208, 255, 0);
+
+    /* 삼각형 클리핑 속성으로 만들기  */
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+.mouth::after {
+    transform: rotate(180deg) translateY(-30%);
+}
+
+/* 
+[css 클리핑 속성 ]
+-> clip-path : polygon(x1 y2, x2 y2, ....)]
+-> 각 좌표쌍은 띄워쓰기로 각 점은 콤마로 구분
+-> 각 점을 연결하여 도형모양만 출력한다. 
+-> px 는 각 도형 크기 내부의 수치로 쓰고 % 는 도형을 기준한 위치를 %로 나타낸다.!
+
+*/
+
 /* 귀공통*/
 .ear {
     top: 80px;
@@ -152,6 +212,53 @@ body * {
     right: -50px;
     border-radius: 0 50% 50% 0;
 }
+
+/* 로봇몸통 */
+.body {
+    position: relative;
+    /* 부모자격 - 하위 직계 div 들*/
+    width: 200px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 130px;
+}
+
+/* 몸통 하위 직계 div 모두 앱솔루트! */
+.body > div {
+    position: absolute;
+}
+
+/* 몸통 가상요소로 상단 만들기 */
+.body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -50px;
+    width: 300px;
+    height: 180px;
+    background-color: #fff;
+}
+
+/* 몸통 가상요소로 하단 만들기 */
+.body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: -50px;
+    width: 300px;
+    height: 150px;
+    background-color: #fff;
+}
+
+/* 목 */
+/* 왼팔 */
+/* 오른팔 */
+/* 왼다리 */
+/* 오른다리 */
+/* 왼어깨 */
+/* 오른어깨 */
+/* TV */
 /******************************************** 
             3.하단영역 
 ********************************************/
