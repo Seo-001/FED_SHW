@@ -4,6 +4,9 @@
         <meta charset="UTF-8" />
         <title>ROBOT PJ</title>
         <link rel="shortcut icon" type="image/x-icon" href="./images/robot_03.png" />
+        <!-- 외부 CSS -->
+        \
+        <link rel="stylesheet" href="./css/robot.css" />
     </head>
     <body>
         <!-- 1.상단영역 -->
@@ -18,7 +21,25 @@
         <div id="cont">
             <main class="cont">
                 <!-- 2-1. 로봇박스 -->
-                <section class="robx"></section>
+                <section class="robx">
+                    <!-- 로봇머리 -->
+                    <div class="head mt1">
+                        <!-- 왼눈 -->
+                        <div class="eye e1"></div>
+                        <!-- 오른눈 -->
+                        <div class="eye e2"></div>
+                        <!-- 코 -->
+                        <div class="nose"></div>
+                        <!-- 입 -->
+                        <div class="mouth"></div>
+                        <!-- 왼귀 -->
+                        <div class="ear er1"></div>
+                        <!-- 오른귀 -->
+                        <div class="ear er1"></div>
+                    </div>
+                    <!--박스를 만들면서 확장성 있게  이미지 위에 다양하게 덧붙이게 만들려고 div 로 만든다.
+                    이미지 태그를 쓰면 이미지 있는 것 밖에 못한다.  -->
+                </section>
                 <!-- 2-1. 로봇설명박스 -->
                 <section class="dcbx"></section>
             </main>
