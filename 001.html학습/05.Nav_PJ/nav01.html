@@ -138,10 +138,15 @@
             /* 컨텐츠 박스 */
             .cont {
                 position: relative;
+                /* 마영오가 먹히는 static 한 랠러티브를 줌 
                 /* z-index 관계파악을 위해 relative */
-                /* 앱솔루트  덮히는 위에 relative가 온다. 
+                /* 
+                컨텐츠 박스안에 하위에 랠러티브가 오는 경우가 있어서 
+                미리 알기 위해 relative 가 온다. 
+                앱솔루트  덮히는 위에 relative가 온다. 
                 static은 앱솔루트 relative 아래에 온다. 
-                앱솔루트에 z-index를 주었기 E때문에 확인하기 위해 컨텐츠 박스에 relative 를 준것이다.   */
+                앱솔루트에 z-index를 주었기 때문에 확인하기 위해 컨텐츠 박스에 relative 를 준것이다.   
+                위에 있는 Z-index 로 인해서 마진을 줄이게 되면 사이므메뉴가 컨텐츠를 덥는다. */
                 max-height: 1000px;
                 height: 400px;
                 border-radius: 15px;

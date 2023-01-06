@@ -50,17 +50,83 @@ body * {
 
 /* 로봇머리 */
 .head {
+    position: relative;
+    /* 마영오가 먹히는 static 한 랠러티브를 줌 
+    부모자격: 하위 div 들  */
     width: 250px;
-    height: 250px; /* 마영오 */
+    height: 250px;
+    /* 마영오 */
     margin: 0 auto;
 }
-/* 왼눈 */
-/* 오른눈 */
-/* 코 */
-/* 입 */
-/* 왼귀 */
-/* 오른귀 */
 
+/* 로봇머리 직계하위 div는 모두 앱솔루트 */
+.head > div {
+    position: absolute;
+}
+/* 눈공통 */
+.eye {
+    width: 50px;
+    height: 50px;
+
+    /* 배경화면 */
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+    /*둥근 모서리 : 50% 원 */
+    border-radius: 50%;
+    /* 보더이중선: double */
+    border: 4px double #000;
+    /* 1필셀이면 안보인다 그래서 4px 를 준 것이다.  */
+}
+/* 왼눈 */
+.e1 {
+    top: 50px;
+    left: 50px;
+    background-image: url(../images/e1.jpg);
+}
+/* 오른눈 */
+.e2 {
+    top: 50px;
+    right: 50px;
+    background-image: url(../images/e2.jpg);
+}
+/* 코 */
+.nose {
+    top: 99px;
+    left: 100px;
+    width: 50px;
+    height: 70px;
+    background: url(../images/nose.jpg) no-repeat 0/110% 100%;
+    /* 둥근모서리 */
+    border-radius: 30px;
+}
+/* 입 */
+.mouth {
+    bottom: 20px;
+    left: 75px;
+    width: 100px;
+    height: 51px;
+    background: url(../images/mouth.png) no-repeat 0/100% 100%;
+}
+/* 귀공통*/
+.ear {
+    top: 80px;
+    width: 50px;
+    height: 70px;
+}
+
+/* 왼귀 */
+.er1 {
+    left: -50px;
+    border-radius: 50% 0 0 50%;
+}
+/* 오른귀 */
+.er2 {
+    right: -50px;
+    border-radius: 0 50% 50% 0;
+}
 /******************************************** 
             3.하단영역 
 ********************************************/
