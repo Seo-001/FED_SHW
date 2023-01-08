@@ -70,23 +70,23 @@ body * {
 /* 로봇 머리에 가상 요소로 머리털 박스 만들기  
 가상요소도 자식이다. */
 .head::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
-    top: -70px;
-    left: -15px;
+    top: -134px;
+    left: -105px;
     /* 부모는? .head 이다.  */
-    width: 280px;
+    width: 453px;
     height: 200px;
-    background: url(../images/hair.png) no-repeat 0/100% 100%;
+    background: url(../images/hair5.png) no-repeat 0/100% 100%;
     /* 맨위 */
     z-index: 1;
 }
 
 /* 머리박스에 오버시 가상요소 가발 변경하기 */
-/* 가상클래스,가상요소는 떨어질 수 없다. 붙어쓸 수 없다.   */
+/* 가상클래스,가상요소는 떨어질 수 없다.   */
 .head:hover::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: -120px;
@@ -100,7 +100,7 @@ body * {
 /* 가상요소는 1박스당 2개를 만들 수 있다. 
 머리박스 가상요소로 턱 만들기 */
 .head::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: 100%;
@@ -110,7 +110,7 @@ body * {
     height: 100px;
     background: url(../images/metal01.jpg) no-repeat bottom/100%;
     /* 턱 깍기 overflow : hidden 를 주는 것과 같다. 
-    히든 처리를 안 했을지라eh, 그래서 box-shadow 안된다. */
+    히든 처리를 안 했을지라도, 그래서 box-shadow 안된다. */
     clip-path: polygon(0 0, 33.33% 100%, 66.66% 100%, 100% 0);
 
     /* 박스 그림자 */
@@ -168,7 +168,7 @@ body * {
 /* 입옆에 변모양점 가상요소로 만들기  */
 .mouth::before,
 .mouth::after {
-    content: "";
+    content: '';
     display: block; /* 명시적으로 블락 */
     position: absolute; /* 앱솔루트는 블락이긴 하지만 명시적으로 블락 표시함 */
     top: -25px;
@@ -192,6 +192,8 @@ body * {
 -> 각 좌표쌍은 띄워쓰기로 각 점은 콤마로 구분
 -> 각 점을 연결하여 도형모양만 출력한다. 
 -> px 는 각 도형 크기 내부의 수치로 쓰고 % 는 도형을 기준한 위치를 %로 나타낸다.!
+->  턱 깍기하는 것은 overflow : hidden 를 주는 것과 같다. 
+    히든 처리를 안 했을지라도, 그래서 box-shadow 안된다. 
 
 */
 
@@ -230,7 +232,7 @@ body * {
 
 /* 몸통 가상요소로 상단 만들기 */
 .body::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: -50px;
@@ -244,7 +246,7 @@ body * {
 
 /* 몸통 가상요소로 하단 만들기 */
 .body::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     bottom: 0;

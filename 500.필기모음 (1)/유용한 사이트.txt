@@ -1,0 +1,3 @@
+https://bennettfeely.com/clippy/ - > clip-path로 원하는 영역만 표현하기
+https://ldrerin.tistory.com/m/397 -> 애니메이션 
+https://codepen.io/matchboxhero/pen/XeQWNw->애니메이션
