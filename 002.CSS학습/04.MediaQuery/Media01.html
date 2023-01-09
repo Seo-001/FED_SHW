@@ -68,6 +68,7 @@
 
                 3) max-width : 최대사이즈
                     -> 반드시 px단위를 사용함, 소괄호 사용함!
+                    -> % 로 해도 픽셀로 다시 변환한다. 
 
                 4) min-width : 최소사이즈
                     -> 반드시 px단위를 사용함, 소괄호 사용함!
@@ -190,6 +191,242 @@
             .screen img:first-child {
                 display: inline;
             }
+
+            /***************** 미디어쿼리 적용하기 *****************/
+
+            /* 주의: 
+            1. max-width 만 사용할 경우 
+            큰 사이즈부터 작은 사이즈 순으로 코딩해야 의도대로 적용 된다.!  
+            
+            2. 기존 선택한 방법과 동일한 선택자로 코딩하여 
+            덮어쓰기가 되도록 코딩한다.  
+
+            3. 브라우저 테스트시 글자크기를 반드시 100% 로 셋팅해서 
+            테스트한다. (비율이 변경되면 수치가 정확히 표시되지 않는다.)
+            -> [ ctrl + 0 -> 100% 보기 ]
+
+            */
+            /* 1200 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 1200px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 1200px 이하';
+                    color: pink;
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:first-child {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(2) {
+                    display: inline;
+                }
+            }
+            /* 1200px 이하 미디어 쿼리 끝 */
+
+            /* 1100px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 1100px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 1100px 이하';
+                    color: lime;
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:nth-child(2) {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(3) {
+                    display: inline;
+                }
+                /* css 에서는 이미지 src 속성을 못바꾼다.
+                이미지를 직접 바꾸는 것은 안된다.
+                배경화면으로 이미지 넣거나,
+                가상요소로 하거나 는 가능한다. */
+            }
+            /* 1100px 이하 미디어 쿼리 끝 */
+
+            /* 1000px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 1000px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 1000px 이하';
+                    color: darkmagenta;
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:nth-child(3) {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(4) {
+                    display: inline;
+                }
+            }
+            /* 1000px 이하 미디어 쿼리 끝 */
+
+            /* 900px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 900px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 900px 이하';
+                    color: darkorange;
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:nth-child(4) {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(5) {
+                    display: inline;
+                }
+            }
+            /* 900px 이하 미디어 쿼리 끝 */
+
+            /* 850px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 850px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 850px 이하';
+                    color: blue;
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:nth-child(5) {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(6) {
+                    display: inline;
+                }
+            }
+            /* 850px 이하 미디어 쿼리 끝 */
+
+            /* 830px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 830px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 830px 이하';
+                    color: rgba(0, 72, 255, 0.897);
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:nth-child(6) {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(7) {
+                    display: inline;
+                }
+            }
+            /* 830px 이하 미디어 쿼리 끝 */
+
+            /* 810px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 810px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 810px 이하';
+                    color: rgb(74, 129, 74);
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:nth-child(7) {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(8) {
+                    display: inline;
+                }
+            }
+            /* 810px 이하 미디어 쿼리 끝 */
+
+            /* 790px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 790px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 790px 이하';
+                    color: rgb(119, 255, 0);
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:nth-child(8) {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(9) {
+                    display: inline;
+                }
+            }
+            /* 790px 이하 미디어 쿼리 끝 */
+
+            /* 770px 이하 미디어쿼리 시작 */
+            @media screen and (max-width: 770px) {
+                /* 1. 타이틀 변경하기 */
+                .tit::after {
+                    content: '최대 770px 이하';
+                    color: rgb(255, 102, 0);
+                }
+                /* 2.기존 이미지 숨기기   */
+                .screen img:nth-child(9) {
+                    display: none;
+                }
+
+                /* 3.다음 이미지 숨기기   */
+                .screen img:nth-child(10) {
+                    display: inline;
+                }
+            }
+            /* 770px 이하 미디어 쿼리 끝 */
+
+            /************************************ 
+            가로모드 와 세로모드 변경코드!!!
+            -> 가로/ 세로 모드 는 그 길이가 더 긴것을 
+            기준한다.!! 모바일 전용이 아니다.!!
+            -> 모바일 화면의 제한을 주려면 
+            가로크기의 한게값을 설정하는 방법을 사용한다.
+            예)
+            @media screen and 
+            (orientation: portrait) and
+            (max-width: 1000px) {css 코드}
+            ************************************/
+            /* 세로모드 시작 */
+            @media screen and (orientation: portrait) and (max-width: 1000px) {
+                /* .bx의 배경속성변경 */
+                .bx {
+                    background-size: auto 60%;
+                    background-position: top;
+                }
+                /* 스크린 위치값 변경 */
+                .screen {
+                    top: 130px;
+                }
+            }
+
+            /* 세로모드 끝  */
+
+            /* 가로모드 시작 */
+            @media screen and (orientation: landscape) and (max-width: 1000px) {
+                /* 타이틀 위치변경 */
+                .tit {
+                    text-align: left;
+                    text-indent: 15px;
+                }
+                /* .bx 의 배경속성변경 */
+                .bx {
+                    background-size: auto 53%;
+                    background-position: center -100px;
+                }
+                /* 스크린 위치값변경 */
+                .screen {
+                    top: 18px;
+                    transform: translateX(-49%);
+                }
+            }
+
+            /* 가로모드 끝  */
         </style>
     </head>
     <body>
