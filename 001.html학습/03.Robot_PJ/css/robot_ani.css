@@ -154,7 +154,7 @@ animation: 이시이지반방마
         transform: rotate(-122deg);
     }
     to {
-        transform: rotate(-132deg);
+        transform: rotate(-142deg);
     }
 }
 @keyframes rightArm2 {
@@ -170,9 +170,27 @@ animation: 이시이지반방마
 @keyframes rightArm3 {
     /* 오른손 계속흔들기 */
     from {
-        transform: rotate(-10deg);
+        transform: rotate(20deg) rotateY(180deg);
+        right: -22px;
     }
     to {
-        transform: rotate(10deg);
+        transform: rotate(-20deg) rotateY(180deg);
+        right: -22px;
     }
+}
+
+/* 3-2 오른팔 애니 호출 */
+.a2 {
+    /* 애니메이션 :이시이지반방마 */
+    animation: rightArm1 0.5s ease-out 6s forwards, rightArm1-2 0.3s linear 6.5s infinite alternate;
+}
+
+/* 3-3 오른팔 하단  */
+.a2 span {
+    animation: rightArm2 0.3s linear 6.5s infinite alternate;
+}
+
+/* 오른손  */
+.a2 span::after {
+    animation: rightArm2 0.3s linear 6.5s infinite alternate;
 }
