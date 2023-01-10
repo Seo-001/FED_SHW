@@ -45,7 +45,7 @@ body * {
 /* 2-1. 로봇박스 */
 .robx {
     /* 패딩 위, 아래 */
-    padding: 200px 0 400px;
+    padding: 200px 0 600px;
 }
 
 /* 로봇머리 */
@@ -53,6 +53,8 @@ body * {
     position: relative;
     /* 마영오가 먹히는 static 한 랠러티브를 줌 
     부모자격: 하위 div 들  */
+    z-index: 1;
+    /* .body보다 위 */
     width: 250px;
     height: 150px;
     /* 마영오 */
@@ -70,7 +72,7 @@ body * {
 /* 로봇 머리에 가상 요소로 머리털 박스 만들기  
 가상요소도 자식이다. */
 .head::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: -134px;
@@ -86,7 +88,7 @@ body * {
 /* 머리박스에 오버시 가상요소 가발 변경하기 */
 /* 가상클래스,가상요소는 떨어질 수 없다.   */
 .head:hover::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: -120px;
@@ -100,7 +102,7 @@ body * {
 /* 가상요소는 1박스당 2개를 만들 수 있다. 
 머리박스 가상요소로 턱 만들기 */
 .head::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 100%;
@@ -168,7 +170,7 @@ body * {
 /* 입옆에 변모양점 가상요소로 만들기  */
 .mouth::before,
 .mouth::after {
-    content: '';
+    content: "";
     display: block; /* 명시적으로 블락 */
     position: absolute; /* 앱솔루트는 블락이긴 하지만 명시적으로 블락 표시함 */
     top: -25px;
@@ -232,32 +234,47 @@ body * {
 
 /* 몸통 가상요소로 상단 만들기 */
 .body::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     left: -50px;
     width: 300px;
     height: 200px;
     /* 그라데이션 */
-    background-image: linear-gradient(-25deg, #eee, #818181, #e2e2e2, #acacac);
+    background-image: linear-gradient(10deg, #eee, #ca2727, #f70b0b, #f5e6e6);
     /* 몸깍기 */
-    clip-path: polygon(0 0, 10% 100%, 90% 100%, 100% 0);
+    clip-path: polygon(0 0, 10% 100%, 50% 50%, 90% 100%, 100% 0);
 }
 
 /* 몸통 가상요소로 하단 만들기 */
 .body::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
-    bottom: 0;
-    left: -50px;
-    width: 300px;
-    height: 150px;
+    bottom: -32px;
+    left: -82px;
+    width: 360px;
+    height: 186px;
     background-color: #fff;
     /* 그라데이션 */
     background-image: linear-gradient(-25deg, rgb(0, 217, 255), #330de0, #038ef8, #02e6ff);
     /* 몸 깍기  */
-    clip-path: polygon(15% 0, 0 50%, 10% 100%, 90% 100%, 100% 50%, 90% 0);
+    /* clip-path: polygon(10% 0, 0 50%, 10% 100%, 90% 100%, 100% 50%, 90% 0); */
+    clip-path: polygon(
+        0% 15%,
+        15% 15%,
+        15% 0%,
+        85% 0%,
+        85% 15%,
+        100% 15%,
+        100% 85%,
+        85% 85%,
+        85% 100%,
+        15% 100%,
+        15% 85%,
+        0% 85%
+    );
+    border-radius: 20%;
 }
 
 /* 목 */
@@ -265,16 +282,184 @@ body * {
     top: -40px;
     left: 65px;
     width: 70px;
-    height: 70px;
+    height: 50px;
     border-radius: 0 0 20px 20px;
-    z-index: -2;
+    /* 하단보더 */
+    border-bottom: 20px ridge goldenrod;
+}
+/* 팔공통 */
+.arm {
+    width: 80px;
+    height: 230px;
+    z-index: -1;
+    border-radius: 15px;
+    /* 회전축변경 : 가로중앙 세로10% 지점*/
+    transform-origin: center 10%;
+}
+
+/* 팔공통 가상요소로 연결부분 만들기 */
+.arm::before,
+.arm::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -34px;
+    left: -8px;
+    z-index: 1;
+    width: 90px;
+    height: 68px;
+    border-radius: 50%;
+    border: 4px solid #000;
+    background-color: rgb(226, 197, 29);
+    /* 보더, 패딩포함 크기 유지 */
+    box-sizing: border-box;
+}
+
+/* 팔연결부분 내부박스 */
+.arm::after {
+    transform: scale(0.8);
+    /* 선형그라데이션 */
+    background-image: linear-gradient(45deg, rgb(118, 238, 124) 20%, rgb(69, 159, 211) 80%);
+}
+/* 팔하단  */
+.arm span {
+    position: absolute;
+    top: 100%;
+    left: 5px;
+    /* 부모는? .arm , arm 자체가 앱솔루트이다. static이 아니면 앱솔루트 부모가 될 수 있다. */
+    display: block;
+    width: 70px;
+    height: 250px;
+    border-radius: 15px;
+    /* 회전축변경 : 세로방향 top*/
+    transform-origin: top;
+}
+
+/* 팔하단 가상요소로 손박스 만들기  */
+.arm span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -135px;
+
+    width: 90px;
+    height: 135px;
+    outline: 2px dashed lime;
+}
+
+/* 왼쪽손 배경이미지 */
+.a1 span::after {
+    left: -6px;
+    background: url(../images/hand_left.png) no-repeat bottom/100%;
 }
 /* 왼팔 */
+.a1 {
+    top: 16px;
+    left: -120px;
+    transform: rotate(40deg);
+}
+
+/* 왼팔하단 */
+.a1 span {
+    transform: rotate(126deg);
+}
+
+/* 오른손 배경이미지 */
+.a2 span::after {
+    right: -6px;
+    background: url(../images/hand_right.png) no-repeat bottom/100%;
+}
+
 /* 오른팔 */
+.a2 {
+    top: 16px;
+    right: -120px;
+    transform: rotate(-40deg);
+}
+
+/* 오른팔하단 */
+.a2 span {
+    transform: rotate(52deg);
+}
+
+/* 다리공통 */
+.leg {
+    top: 90%;
+    /*  top : 100% 부모박스 높이 만큼 아래로 밀어냄   */
+    width: 85px;
+    height: 180px;
+    z-index: -1;
+    border-radius: 30px;
+}
+
+/* 다리공통 가상요소로 연결부분 만들기 */
+.leg::before,
+.leg::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -40px;
+    z-index: 1;
+    width: 85px;
+    height: 85px;
+    background-color: #fff;
+
+    border-radius: 15px;
+    border: 4px solid #333;
+    /* 트랜스폼 : 먼저 x 축 축소하고 회전
+    -> 무엇을 먼저했느냐에 따라 결과 달라짐! */
+    transform: scaleX(0.8) rotate(45deg);
+}
+
+/* 다리연결부분 내부박스 */
+.leg::after {
+    transform: scale(0.65, 0.8) rotate(90deg);
+    /* 선형그라데이션 */
+    background-image: linear-gradient(45deg, rgb(171, 241, 58) 20%, rgb(238, 60, 214) 80%);
+}
+/* 다리하단 공통 */
+.leg span {
+    position: absolute;
+    top: 100%;
+    left: 6px;
+    /* 부모는? .arm , arm 자체가 앱솔루트이다. static이 아니면 앱솔루트 부모가 될 수 있다. */
+    display: block;
+    width: 70px;
+    height: 220px;
+    border-radius: 15px;
+    /* 회전축변경 : 세로방향 top*/
+    transform-origin: top;
+}
 /* 왼다리 */
+.l1 {
+    left: -15px;
+}
+
 /* 오른다리 */
+.l2 {
+    right: -15px;
+}
+
+/* 어깨 공통 */
+.shd {
+    width: 95px;
+    height: 80px;
+}
 /* 왼어깨 */
+.s1 {
+    top: -3px;
+    left: -138px;
+    border-radius: 100% 60% 60% 100%;
+    transform: rotate(-8deg);
+}
 /* 오른어깨 */
+.s2 {
+    top: -6px;
+    right: -140px;
+    border-radius: 60% 100% 100% 60%;
+    transform: rotate(3deg);
+}
+
 /* TV */
 /******************************************** 
             3.하단영역 
