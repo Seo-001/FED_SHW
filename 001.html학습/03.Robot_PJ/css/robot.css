@@ -46,6 +46,8 @@ body * {
 .robx {
     /* 패딩 위, 아래 */
     padding: 200px 0 600px;
+    transform: scale(0.6);
+    transform-origin: top;
 }
 
 /* 로봇머리 */
@@ -251,10 +253,10 @@ body * {
     content: "";
     display: block;
     position: absolute;
-    bottom: -32px;
-    left: -82px;
-    width: 360px;
-    height: 186px;
+    bottom: 0px;
+    left: -28px;
+    width: 260px;
+    height: 150px;
     background-color: #fff;
     /* 그라데이션 */
     background-image: linear-gradient(-25deg, rgb(0, 217, 255), #330de0, #038ef8, #02e6ff);
@@ -340,46 +342,60 @@ body * {
     content: "";
     display: block;
     position: absolute;
-    bottom: -135px;
-
+    bottom: -126px;
     width: 90px;
     height: 135px;
     outline: 2px dashed lime;
+    /* 회전축변경 : 세로방향 top*/
+    transform-origin: top;
+    transform: rotate(10deg);
+
 }
 
 /* 왼쪽손 배경이미지 */
 .a1 span::after {
     left: -6px;
+    transform: rotate(10deg);
     background: url(../images/hand_left.png) no-repeat bottom/100%;
 }
-/* 왼팔 */
-.a1 {
-    top: 16px;
-    left: -120px;
-    transform: rotate(40deg);
-}
-
-/* 왼팔하단 */
-.a1 span {
-    transform: rotate(126deg);
-}
+/* .a1 span::after {
+    left: -6px;
+    background: url(../images/fire.png) no-repeat bottom/200%;
+    transform: rotate(180deg);
+} */
 
 /* 오른손 배경이미지 */
 .a2 span::after {
     right: -6px;
+    transform: rotate(-10deg);
     background: url(../images/hand_right.png) no-repeat bottom/100%;
+
 }
+
+/* 왼팔 */
+.a1 {
+    top: 16px;
+    left: -120px;
+    transform: rotate(10deg);
+}
+
+/* 왼팔하단 */
+.a1 span {
+    transform: rotate(-10deg);
+}
+
+
 
 /* 오른팔 */
 .a2 {
     top: 16px;
     right: -120px;
-    transform: rotate(-40deg);
+    transform: rotate(-10deg);
 }
 
 /* 오른팔하단 */
 .a2 span {
-    transform: rotate(52deg);
+    transform: rotate(10deg);
 }
 
 /* 다리공통 */
@@ -440,7 +456,7 @@ body * {
     width: 80px;
     height: 70px;
     border-radius: 15px;
-    background-color: #ccc;
+    /* background-color: #ccc; */
     border-radius: 40px 40px 0 0;
     border: 4px solid rgba(250, 3, 3, 0.562);
     border-bottom: 22px solid rgb(150, 25, 155);
@@ -493,6 +509,38 @@ body * {
 }
 
 /* TV */
+.tv {
+    top: 50px;
+    left: 10px;
+    width: 180px;
+    height: 138px;
+    border-radius: 5px;
+    background: url(../images/tv.jpg) no-repeat center/cover;
+}
+
+/* 스크린 */
+.screen {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 123px;
+    height: 99px;
+    border-radius: 15px;
+    background-color: #000;
+/* 자식요소 아이프레임 넘치는 부분숨기기 */
+    overflow: hidden;
+}
+
+/* 동영상 iframe */
+.screen iframe {
+    position: absolute;
+    top: 0px;
+    left: -19px;
+    width: 170px;
+    height: 100px;
+    /*아이프레임 기본보더 없앰 */
+    border: none;
+}
 /******************************************** 
             3.하단영역 
 ********************************************/

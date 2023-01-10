@@ -40,17 +40,139 @@ animation: 이시이지반방마
 
 /* 1-1. 로봇 등장 키프레임 */
 @keyframes showRobot {
+    /*
+    초기값과 같다면 from 은 생략가능함
     from {
-        transform: scale(0.1) translate(200%, -50%);
-        /* 스케일이 작으면 퍼센트가 달라셔저 퍼센트 높임 */
-    }
+        transform: scale(0.1) translate(200%, -50%); 
+        스케일이 작으면 퍼센트가 달라셔저 퍼센트 높임 
+    애니메이션 애한테 트랜지션을 주면 안된다. 
+        
+        transform: translate(20%, -20%) scale(0);
+    } 
+    */
     to {
-        transform: scale(1);
+        transform: translate(0, 0) scale(0.6) /* rotate(720deg) */;
+    }
+}
+/* 로봇을 키프레임 추가
+.robx의 내부 div 박스를 회전함
+-> 중심점 때문에 만들어서 사용함!  */
+@keyframes showRobot2 {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(-360deg);
     }
 }
 
+/* 
+[애니메이션 기본특성]
+1. 기본적으로 1회만 실행
+2. 애니메이션 후 처음 설정된 값으로 돌아감
+3. 반복할 경우 시작-> 끝 순으로 반복함
+
+[기본특정 변경하기]
+1. 반복실행하고 싶으면 반복여부(animation-iteration-count) 속성값으로 반복횟수를 쓰거나 계속반복실행하고 싶으면 infinite
+
+2. 마지막 애니메이션 설정값으로 끝나고 싶으면 
+마지막 상태 (animation-fill-mode) 속성값을 forwards 로 쓴다.
+
+3. 시작 -> 끝, 끝->시작 반복 애니메이션을 역순으로도 설정하고 싶으면 방향(animation-direction) 속성값을 alternate로 쓴다. 
+*/
+
 /* 1-2 키프레임 호출설정! -대상 */
 .robx {
+    /* 초기상태 지정하기 = from 값이다. */
+    transform: translate(20%, 10%) scale(0) /* rotate(0) */;
+    /* 트랜스폼 기준값 변경  */
+    transform-origin: top;
+
     /* 애니메이션 :이시이지반방마 */
-    /* animation: showRobot 3s ease-in-out 1s; */
+    animation: showRobot 4s ease-out 1s forwards;
+    /* animation: 
+    showRobot 3s ease-in-out 1s infinite 
+    3 alternate forwards;  */
+}
+/* 로봇을 추가회전 애니호출*/
+.robx > div {
+    /* 애니메이션 : 이시이지반방마 */
+    animation: showRobot2 4s ease-in-out 1s;
+}
+
+/* 2-1. 왼팔올리기  */
+@keyframes leftArm1 {
+    /* 팔상단 */
+    to {
+        transform: rotate(52deg);
+    }
+}
+
+@keyframes leftArm2 {
+    /* 팔하단 */
+    to {
+        transform: rotate(-98deg);
+    }
+}
+
+@keyframes leftArm3 {
+    /* 왼손 */
+    to {
+        transform: rotate(77deg);
+    }
+}
+
+/* 2-2 왼팔애니 호출하기  */
+/* 애니메이션 :이시이지반방마 */
+.a1 {
+    animation: leftArm1 0.5s ease-in-out 5s forwards;
+}
+
+.a1 span {
+    animation: leftArm2 0.5s ease-in-out 5s forwards;
+}
+
+.a1 span::after {
+    animation: leftArm3 0.5s ease-in-out 5s forwards;
+}
+
+/* 3-1 오른팔 올리기 */
+
+@keyframes rightArm1 {
+    /* 팔상단  한번올리기 */
+    to {
+        transform: rotate(-122deg);
+    }
+}
+
+@keyframes rightArm1-2 {
+    /* 팔상단  계속 흔들기 */
+    from {
+        transform: rotate(-122deg);
+    }
+    to {
+        transform: rotate(-132deg);
+    }
+}
+@keyframes rightArm2 {
+    /* 팔하단 계속 흔들기 */
+    from {
+        transform: rotate(10deg);
+    }
+    to {
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes rightArm3 {
+    /* 오른손 계속흔들기 */
+    from {
+        transform: rotate(-10deg);
+    }
+    to {
+        transform: rotate(10deg);
+    }
 }
